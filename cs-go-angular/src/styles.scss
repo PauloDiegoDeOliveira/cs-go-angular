@@ -2,3 +2,20 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+app-root{
+    display: flex;
+    flex-flow: column;
+    height: 100vh
+    }
+    
+    router-outlet {
+    flex-grow: 1;
+    flex-basis: auto
+    }
+
+    app-navbar,
+    app-footer {
+        flex-grow: 0;
+        flex-basis: auto
+    }
