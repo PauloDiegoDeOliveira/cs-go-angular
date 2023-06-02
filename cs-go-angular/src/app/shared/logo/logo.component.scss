@@ -1,14 +1,19 @@
 .logo-container {
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
-.logo-container__title {
-    font-size: 20px;
-    margin-left: 10px;
-    color: #fff;
+.logo-container__link{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .logo-container__logo {
     height: 50px;
+}
+
+.logo-container__title {
+    margin-left: 10px;
 }
