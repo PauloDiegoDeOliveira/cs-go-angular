@@ -1,11 +1,16 @@
 footer {
     background-color: #333;
-    padding: 10px;
-    text-align: center;
     height: 70px;
-    color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: auto;
+}
+
+footer p {
+    color: #fff;
+    font-size: 15px;
+    text-align: center; 
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
 }
