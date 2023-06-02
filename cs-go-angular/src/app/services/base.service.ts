@@ -5,7 +5,5 @@ import { Injectable } from '@angular/core';
 })
 export class BaseService {
 
-  protected urlApi: string = environment.urlApi;
-
   constructor() { }
 }
