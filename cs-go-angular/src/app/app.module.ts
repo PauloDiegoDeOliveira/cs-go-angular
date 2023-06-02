@@ -11,8 +11,9 @@ import { BuscarComponent } from './shared/buscar/buscar.component';
 import { BannerComponent } from './shared/banner/banner.component';
 import { LogoComponent } from './shared/logo/logo.component';
 import { TituloComponent } from './shared/titulo/titulo.component';
-
-
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,10 @@ import { TituloComponent } from './shared/titulo/titulo.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NoopAnimationsModule
+    NoopAnimationsModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule    
   ],
   providers: [],
   bootstrap: [AppComponent]
