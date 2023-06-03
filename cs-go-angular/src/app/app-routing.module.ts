@@ -5,8 +5,12 @@ import { HomeComponent } from './views/home/home.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'home',
     component: HomeComponent
+  },
+  {
+    path: '**',
+    redirectTo: 'home'
   }
 ];
 
