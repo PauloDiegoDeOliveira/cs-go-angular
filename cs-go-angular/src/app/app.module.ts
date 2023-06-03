@@ -15,9 +15,9 @@ import { HomeModule } from './views/home/home.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NoopAnimationsModule,   
+    NoopAnimationsModule,
     CoreModule,
-    SharedModule, 
+    SharedModule,
     HomeModule
   ],
   providers: [],

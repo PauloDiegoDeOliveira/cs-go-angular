@@ -5,6 +5,7 @@ import { BuscarComponent } from './buscar/buscar.component';
 import { CardComponent } from './card/card.component';
 import { LogoComponent } from './logo/logo.component';
 import { TituloComponent } from './titulo/titulo.component';
+import { FiltroComponent } from './filtro/filtro.component';
 
 
 
@@ -14,7 +15,8 @@ import { TituloComponent } from './titulo/titulo.component';
     BuscarComponent,
     CardComponent,
     LogoComponent,
-    TituloComponent
+    TituloComponent,
+    FiltroComponent
   ],
   imports: [
     CommonModule,
