@@ -5,7 +5,6 @@ import { BuscarComponent } from './buscar/buscar.component';
 import { CardComponent } from './card/card.component';
 import { LogoComponent } from './logo/logo.component';
 import { TituloComponent } from './titulo/titulo.component';
-import { FiltroComponent } from './filtro/filtro.component';
 
 
 
@@ -16,7 +15,7 @@ import { FiltroComponent } from './filtro/filtro.component';
     CardComponent,
     LogoComponent,
     TituloComponent,
-    FiltroComponent
+
   ],
   imports: [
     CommonModule,
@@ -26,8 +25,7 @@ import { FiltroComponent } from './filtro/filtro.component';
     BuscarComponent,
     CardComponent,
     LogoComponent,
-    TituloComponent,
-    FiltroComponent
+    TituloComponent
   ],
 })
 export class SharedModule { }
