@@ -3,18 +3,18 @@
     justify-content: space-between;
     width: 100%;
     margin-bottom: 20px;
-}
 
-.block-search-sort__element-input {
-    flex: 1;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
+    &__element-input {
+        flex: 1;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
 
-.block-search-sort__element-select {
-    margin-left: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    &__element-select {
+        margin-left: 10px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
 }

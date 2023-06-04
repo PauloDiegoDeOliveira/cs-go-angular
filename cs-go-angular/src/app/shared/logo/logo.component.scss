@@ -2,18 +2,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
-}
 
-.block-logo-container__element-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+    &__element-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
-.block-logo-container__element-logo {
-    height: 50px;
-}
+    &__element-logo {
+        height: 50px;
+    }
 
-.block-logo-container__element-title {
-    margin-left: 10px;
+    &__element-title {
+        margin-left: 10px;
+    }
 }
