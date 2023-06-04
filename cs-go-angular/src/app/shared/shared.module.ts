@@ -26,7 +26,8 @@ import { FiltroComponent } from './filtro/filtro.component';
     BuscarComponent,
     CardComponent,
     LogoComponent,
-    TituloComponent
+    TituloComponent,
+    FiltroComponent
   ],
 })
 export class SharedModule { }

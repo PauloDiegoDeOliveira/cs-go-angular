@@ -1,19 +1,19 @@
-.logo-container {
+.block-logo-container {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.logo-container__link{
+.block-logo-container__element-link {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.logo-container__logo {
+.block-logo-container__element-logo {
     height: 50px;
 }
 
-.logo-container__title {
+.block-logo-container__element-title {
     margin-left: 10px;
 }
