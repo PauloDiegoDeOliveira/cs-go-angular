@@ -9,6 +9,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
+import { MaisComponent } from './mais/mais.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { MatSelectModule } from '@angular/material/select';
     CardComponent,
     LogoComponent,
     TituloComponent,
+    MaisComponent,
 
   ],
   imports: [
@@ -31,7 +33,8 @@ import { MatSelectModule } from '@angular/material/select';
     BuscarComponent,
     CardComponent,
     LogoComponent,
-    TituloComponent
+    TituloComponent,
+    MaisComponent
   ],
 })
 export class SharedModule { }
