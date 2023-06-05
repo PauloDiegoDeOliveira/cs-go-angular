@@ -12,6 +12,13 @@
     }    
 }
 
+.block-mais{
+    display: flex;
+    justify-content: center;    
+    align-items: center;
+    margin: 20px;
+}
+
 // ::ng-deep{
 //     .teste{
 //         .mat-mdc-form-field-bottom-align::before
