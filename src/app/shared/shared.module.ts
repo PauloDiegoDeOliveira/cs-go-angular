@@ -5,6 +5,10 @@ import { BuscarComponent } from './buscar/buscar.component';
 import { CardComponent } from './card/card.component';
 import { LogoComponent } from './logo/logo.component';
 import { TituloComponent } from './titulo/titulo.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+
 
 
 
@@ -19,6 +23,9 @@ import { TituloComponent } from './titulo/titulo.component';
   ],
   imports: [
     CommonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule
   ],
   exports: [
     BannerComponent,
