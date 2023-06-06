@@ -12,6 +12,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MaisComponent } from './mais/mais.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
+import { MensagemComponent } from './mensagem/mensagem.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import {MatCardModule} from '@angular/material/card';
     LogoComponent,
     TituloComponent,
     MaisComponent,
+    MensagemComponent,
 
   ],
   imports: [
