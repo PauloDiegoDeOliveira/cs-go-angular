@@ -1,13 +1,13 @@
-<div class="card-container">
+<div class="card-container" *ngFor="let item of items">
     <mat-card class="card-container__card">
         <mat-card-header>  
-        <mat-card-title>Faca de Cordame</mat-card-title>
-        <mat-card-subtitle>Degradê</mat-card-subtitle>
+        <mat-card-title>{{item.weapon}}</mat-card-title>  
+        <mat-card-subtitle>{{item.pattern}}</mat-card-subtitle> 
         </mat-card-header>
-        <img mat-card-image src="./assets/img/teste/faca1.png" alt="Skin">
+        <img mat-card-image src="{{item.image}}" alt="Skin">
         <mat-card-content>
-            <mat-card-subtitle>Stattrak: Sim</mat-card-subtitle>
-            <mat-card-subtitle>Raridade: Oculto</mat-card-subtitle>
+            <mat-card-subtitle>Stattrak: {{item.stattrak}}</mat-card-subtitle> 
+            <mat-card-subtitle>Raridade: {{item.rarity}}</mat-card-subtitle> 
         </mat-card-content>  
     </mat-card>
 </div>

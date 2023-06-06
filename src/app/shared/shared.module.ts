@@ -13,6 +13,7 @@ import { MaisComponent } from './mais/mais.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import { MensagemComponent } from './mensagem/mensagem.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { MensagemComponent } from './mensagem/mensagem.component';
     MatSelectModule,
     MatIconModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    HttpClientModule
   ],
   exports: [
     BannerComponent,
