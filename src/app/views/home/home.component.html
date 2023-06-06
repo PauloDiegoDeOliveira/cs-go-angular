@@ -4,8 +4,8 @@
     <app-buscar></app-buscar>
 </div>
 
-<div class="card">
-    <app-card></app-card>
+<div class="card">            
+ <app-card *ngFor="let card of cards" [card]="card"></app-card>
 </div>
 
 <div class="block-mais">
