@@ -10,4 +10,5 @@ import { Card } from 'src/app/models/responses/card';
 export class CardComponent {
 
   @Input() card: Card | undefined;
+  
 }

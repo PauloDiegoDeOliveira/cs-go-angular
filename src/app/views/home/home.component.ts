@@ -11,11 +11,11 @@ export class HomeComponent implements OnInit {
 
 cards: Card[] = [];  
 
-  constructor(private cardService: CardService) { }  
+constructor(private cardService: CardService) { }  
 
-  ngOnInit() {
-    this.getAllCards();  
-  }
+ngOnInit() {
+  this.getAllCards();  
+}
 
 getAllCards() {
     this.cardService.getAll<Card>('/skins.json').subscribe((data: Card) => {

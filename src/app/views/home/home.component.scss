@@ -5,8 +5,7 @@
     margin: 20px;
 }
 
-.card{
-    margin: 40px;
+.cards{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -14,6 +13,7 @@
     align-items: center;
     gap: 15px;
     padding: 20px;
+    margin: 30px;
 }
 
 ::ng-deep{
