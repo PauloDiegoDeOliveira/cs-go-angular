@@ -21,7 +21,8 @@ getAllCards() {
     this.cardService.getAll<Card>('/skins.json').subscribe((data: Card) => {
         if (Array.isArray(data)) {
           this.cards = data;
-        } else {
+        } 
+        else {
           console.error('Não foi possível obter os dados.');
         }
       },

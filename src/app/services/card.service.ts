@@ -8,9 +8,10 @@ import { environment } from 'src/environments/environment';
 })
 export class CardService  {
 
-public urlApi: string = environment.urlApi;
+protected urlApi: string = environment.urlApi;
 
-constructor(private http: HttpClient) { }
+constructor(private http: HttpClient)
+{}
 
   getAll<Card>(url: string) : Observable<Card> {
     return this.http.get<Card>(`${this.urlApi}${url}`);
