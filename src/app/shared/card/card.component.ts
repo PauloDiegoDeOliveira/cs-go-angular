@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Data } from '@angular/router';
 import { Card } from 'src/app/models/responses/card';
 import { CardService } from 'src/app/services/card.service';
 
