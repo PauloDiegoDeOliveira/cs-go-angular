@@ -10,7 +10,7 @@ import { CardService } from 'src/app/services/card.service';
 })
 export class CardComponent implements OnInit {
 
-  items: Card[] = [];  
+  cards: Card[] = [];  
 
   constructor(private cardService: CardService) { }  
 
@@ -21,7 +21,7 @@ export class CardComponent implements OnInit {
 getAllCards() {
     this.cardService.getAll<Card>('/skins.json').subscribe((data: Card) => {
         if (Array.isArray(data)) {
-          this.items = data;
+          this.cards = data;
         } else {
           console.error('Não foi possível obter os dados.');
         }
