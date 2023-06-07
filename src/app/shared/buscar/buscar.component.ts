@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-buscar',
@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class BuscarComponent {
 
+  @Output() searchTermChange = new EventEmitter<string>();
+
 }
+
+
+

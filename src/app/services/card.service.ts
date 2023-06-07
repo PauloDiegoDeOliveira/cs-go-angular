@@ -7,7 +7,7 @@ import { BaseService } from './base.service';
   providedIn: 'root'
 })
 export class CardService extends BaseService {
-  
+
 constructor(http: HttpClient) { super(http) }
 
   getAll<Card>(url: string) : Observable<Card> {
@@ -17,7 +17,7 @@ constructor(http: HttpClient) { super(http) }
   // Padrão
   // getAll<Card>(url: string) : Observable<Card> {
   //   return this.http.get<Card>(`${this.urlApi}${url}`);
-  // }
+  // }  
 
   // Generico
   // public getAll<T>(url: string): Observable<T> {
