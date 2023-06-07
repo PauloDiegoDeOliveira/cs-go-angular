@@ -1,20 +1,19 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
+import { BaseService } from './base.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CardService {
+export class CardService extends BaseService {
 
-protected urlApi: string = environment.urlApi;
+// protected urlApi: string = environment.urlApi;
 
-constructor(private http: HttpClient)
-{}
+constructor(http: HttpClient) { super(http) }
 
   getAll<Card>(url: string) : Observable<Card> {
-    return this.http.get<Card>(`${this.urlApi}${url}`);
+    return this.getData<Card>(`${url}`);
   }
   
     // public getAll<T>(url: string): Observable<T> {
