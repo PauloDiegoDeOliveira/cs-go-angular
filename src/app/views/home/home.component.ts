@@ -18,7 +18,7 @@ ngOnInit() {
 }
 
 getAllCards() {
-    this.cardService.getAll<Card>('/skins.json').subscribe((data: Card) => {
+    this.cardService.getAll<Card>('/skins.json').subscribe({next: (data: Card) => {
         if (Array.isArray(data)) {
           this.cards = data;
         } 
@@ -26,8 +26,8 @@ getAllCards() {
           console.error('Não foi possível obter os dados.');
         }
       },
-      (error) => console.error(error)
-    );
-  }
+      error: (error) => console.error(error)
+    });
+  } 
 
 }
