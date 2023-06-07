@@ -7,16 +7,20 @@ import { BaseService } from './base.service';
   providedIn: 'root'
 })
 export class CardService extends BaseService {
-
-// protected urlApi: string = environment.urlApi;
-
+  
 constructor(http: HttpClient) { super(http) }
 
   getAll<Card>(url: string) : Observable<Card> {
     return this.getData<Card>(`${url}`);
   }
   
-    // public getAll<T>(url: string): Observable<T> {
-    //     return this.http.get<T>(`${this.urlApi}${url}`)}
+  // Padrão
+  // getAll<Card>(url: string) : Observable<Card> {
+  //   return this.http.get<Card>(`${this.urlApi}${url}`);
+  // }
+
+  // Generico
+  // public getAll<T>(url: string): Observable<T> {
+  //     return this.http.get<T>(`${this.urlApi}${url}`)}
 
 }
