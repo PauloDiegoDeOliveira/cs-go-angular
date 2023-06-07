@@ -7,7 +7,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class BuscarComponent {
 
-  @Output() searchTermChange = new EventEmitter<string>();
+  @Output() termoPesquisa = new EventEmitter<string>();
 
 }
 
