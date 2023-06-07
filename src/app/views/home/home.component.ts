@@ -18,7 +18,7 @@ ngOnInit() {
 }
 
 getAllCards() {
-    this.cardService.getAll<Card>('/skins.json').subscribe({next: (data: Card) => {
+    this.cardService.getAll<Card>('skins.json').subscribe({next: (data: Card) => {
         if (Array.isArray(data)) {
           this.cards = data;
         } 
