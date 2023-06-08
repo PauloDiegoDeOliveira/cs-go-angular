@@ -34,6 +34,7 @@ export class HomeComponent implements OnInit {
   }
 
   onSearchTermChange(searchTerm: string) {
+    console.log('Evento recebido com valor:', searchTerm);
     if (!searchTerm) {
       this.filteredCards = this.cards;
     } else {

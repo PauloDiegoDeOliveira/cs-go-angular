@@ -11,6 +11,7 @@ export class BuscarComponent {
 
   onSearchChange(event: Event) {
     const input = event.target as HTMLInputElement;
+    console.log('Emitindo evento com valor:', input.value);
     this.termoPesquisa.emit(input.value);
   }
 
