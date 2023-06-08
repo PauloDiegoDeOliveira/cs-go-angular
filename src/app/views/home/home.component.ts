@@ -9,25 +9,36 @@ import { CardService } from 'src/app/services/card.service';
 })
 export class HomeComponent implements OnInit {
 
-cards: Card[] = [];  
+  cards: Card[] = [];
+  filteredCards: Card[] = [];
 
-constructor(private cardService: CardService) { }  
+  constructor(private cardService: CardService) { }
 
-ngOnInit() {
-  this.getAllCards();  
-}
+  ngOnInit() {
+    this.getAllCards();
+  }
 
-getAllCards() {
-    this.cardService.getAll<Card>('skins.json').subscribe({next: (data: Card) => {
+  getAllCards() {
+    this.cardService.getAll<Card>('skins.json').subscribe({
+      next: (data: Card) => {
         if (Array.isArray(data)) {
           this.cards = data;
-        } 
+          this.filteredCards = data;
+        }
         else {
           console.error('Não foi possível obter os dados.');
         }
       },
       error: (error) => console.error(error)
     });
-  } 
+  }
+
+  onSearchTermChange(searchTerm: string) {
+    if (!searchTerm) {
+      this.filteredCards = this.cards;
+    } else {
+      this.filteredCards = this.cards.filter(card => card.name.toLowerCase().includes(searchTerm.toLowerCase()));
+    }
+  }
 
 }

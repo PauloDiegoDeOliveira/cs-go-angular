@@ -9,6 +9,11 @@ export class BuscarComponent {
 
   @Output() termoPesquisa = new EventEmitter<string>();
 
+  onSearchChange(event: Event) {
+    const input = event.target as HTMLInputElement;
+    this.termoPesquisa.emit(input.value);
+  }
+
 }
 
 
