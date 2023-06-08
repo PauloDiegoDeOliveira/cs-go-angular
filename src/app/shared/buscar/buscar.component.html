@@ -1,4 +1,5 @@
 <div class="search">
+
     <mat-form-field appearance="outline">
         <mat-label>Todos os itens</mat-label>
         <mat-select>
@@ -19,12 +20,13 @@
 
     <mat-form-field appearance="outline">
         <mat-label>Ordenar por</mat-label>
-        <mat-select>
-            <mat-option value="option">Padrão</mat-option>
-            <mat-option value="option">Crescente</mat-option>
-            <mat-option value="option">Decrescente</mat-option>
-            <mat-option value="option">Novos</mat-option>
-            <mat-option value="option">Antigos</mat-option>
+        <mat-select (selectionChange)="onSortChange($event)">
+            <mat-option value="padrao">Padrão</mat-option>
+            <mat-option value="crescente">Crescente</mat-option>
+            <mat-option value="decrescente">Decrescente</mat-option>
+            <mat-option value="novos">Novos</mat-option>
+            <mat-option value="antigos">Antigos</mat-option>
         </mat-select>
     </mat-form-field>
+
 </div>

@@ -8,6 +8,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class BuscarComponent {
 
   @Output() termoPesquisa = new EventEmitter<string>();
+  @Output() ordenarPor = new EventEmitter<string>();
 
   onSearchChange(event: Event) {
     const input = event.target as HTMLInputElement;
@@ -15,7 +16,14 @@ export class BuscarComponent {
     this.termoPesquisa.emit(input.value);
   }
 
+  onSortChange(event: any) {
+    console.log('Emitindo evento de ordenação com valor:', event.value);
+    this.ordenarPor.emit(event.value);
+  }
+
 }
+
+
 
 
 

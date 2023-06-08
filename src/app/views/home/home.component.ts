@@ -42,4 +42,21 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  onSortChange(sortOrder: string) {
+    console.log('Evento de ordenação recebido com valor:', sortOrder);
+    switch (sortOrder) {
+      case 'crescente':
+        this.filteredCards = [...this.filteredCards.sort((a, b) => a.name.localeCompare(b.name))];
+        break;
+      case 'decrescente':
+        this.filteredCards = [...this.filteredCards.sort((a, b) => b.name.localeCompare(a.name))];
+        break;
+      // TODO: Fazer caso para novos e antigos com base no criadoEm
+      default:
+        this.filteredCards = [...this.cards];
+        break;
+    }
+  }
+
+
 }
