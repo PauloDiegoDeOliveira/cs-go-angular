@@ -1,12 +1,11 @@
 <mat-card class="card">
-    <mat-card-header>  
-        <mat-card-title>{{card?.weapon}}</mat-card-title>  
-        <mat-card-subtitle>{{card?.pattern}}</mat-card-subtitle> 
+    <mat-card-header>
+        <mat-card-title>{{card?.weapon}}</mat-card-title>
+        <mat-card-subtitle>{{card?.pattern}}</mat-card-subtitle>
     </mat-card-header>
     <img mat-card-image src="{{card?.image}}" alt='skin-{{card?.weapon}}'>
     <mat-card-content>
-        <mat-card-subtitle>Stattrak: {{card?.stattrak}}</mat-card-subtitle> 
-        <mat-card-subtitle>Raridade: {{card?.rarity}}</mat-card-subtitle> 
-    </mat-card-content>  
+        <mat-card-subtitle>Stattrak: {{card?.stattrak ? 'Sim' : 'Não'}}</mat-card-subtitle>
+        <mat-card-subtitle>Raridade: {{card?.rarity}}</mat-card-subtitle>
+    </mat-card-content>
 </mat-card>
-
