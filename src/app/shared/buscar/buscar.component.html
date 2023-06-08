@@ -14,13 +14,13 @@
 
     <mat-form-field appearance="outline">
         <mat-label>Pesquisar</mat-label>
-        <input matInput placeholder="Ex: Faca" (input)="onSearchChange($event)">
+        <input matInput placeholder="Ex: Faca" (input)="pesquisa($event)">
         <mat-icon matSuffix>search</mat-icon>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
         <mat-label>Ordenar por</mat-label>
-        <mat-select (selectionChange)="onSortChange($event)">
+        <mat-select (selectionChange)="ordenar($event)">
             <mat-option value="padrao">Padrão</mat-option>
             <mat-option value="crescente">Crescente</mat-option>
             <mat-option value="decrescente">Decrescente</mat-option>

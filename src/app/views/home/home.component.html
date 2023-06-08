@@ -1,11 +1,11 @@
 <app-banner></app-banner>
 
 <div class="buscar">
-    <app-buscar (termoPesquisa)="onSearchTermChange($event)" (ordenarPor)="onSortChange($event)"></app-buscar>
+    <app-buscar (termoPesquisa)="pesquisa($event)" (ordenarPor)="ordenar($event)"></app-buscar>
 </div>
 
 <div class="card">
-    <app-card *ngFor="let card of filteredCards" [card]="card"></app-card>
+    <app-card *ngFor="let card of filtroCards" [card]="card"></app-card>
 </div>
 
 <div class="mais">

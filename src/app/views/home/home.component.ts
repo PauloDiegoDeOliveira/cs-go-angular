@@ -10,7 +10,7 @@ import { CardService } from 'src/app/services/card.service';
 export class HomeComponent implements OnInit {
 
   cards: Card[] = [];
-  filteredCards: Card[] = [];
+  filtroCards: Card[] = [];
 
   constructor(private cardService: CardService) { }
 
@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
       next: (data: Card) => {
         if (Array.isArray(data)) {
           this.cards = data;
-          this.filteredCards = data;
+          this.filtroCards = data;
         }
         else {
           console.error('Não foi possível obter os dados.');
@@ -33,30 +33,29 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  onSearchTermChange(searchTerm: string) {
-    console.log('Evento recebido com valor:', searchTerm);
-    if (!searchTerm) {
-      this.filteredCards = this.cards;
+  pesquisa(pesquisa: string) {
+    console.log('Evento recebido com valor:', pesquisa);
+    if (!pesquisa) {
+      this.filtroCards = this.cards;
     } else {
-      this.filteredCards = this.cards.filter(card => card.name.toLowerCase().includes(searchTerm.toLowerCase()));
+      this.filtroCards = this.cards.filter(card => card.name.toLowerCase().includes(pesquisa.toLowerCase()));
     }
   }
 
-  onSortChange(sortOrder: string) {
-    console.log('Evento de ordenação recebido com valor:', sortOrder);
-    switch (sortOrder) {
+  ordenar(ordenar: string) {
+    console.log('Evento de ordenação recebido com valor:', ordenar);
+    switch (ordenar) {
       case 'crescente':
-        this.filteredCards = [...this.filteredCards.sort((a, b) => a.name.localeCompare(b.name))];
+        this.filtroCards = [...this.filtroCards.sort((a, b) => a.name.localeCompare(b.name))];
         break;
       case 'decrescente':
-        this.filteredCards = [...this.filteredCards.sort((a, b) => b.name.localeCompare(a.name))];
+        this.filtroCards = [...this.filtroCards.sort((a, b) => b.name.localeCompare(a.name))];
         break;
       // TODO: Fazer caso para novos e antigos com base no criadoEm
       default:
-        this.filteredCards = [...this.cards];
+        this.filtroCards = [...this.cards];
         break;
     }
   }
-
 
 }
