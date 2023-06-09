@@ -8,12 +8,12 @@ import { BaseService } from './base.service';
 })
 export class CardService extends BaseService {
 
-constructor(http: HttpClient) { super(http) }
+  constructor(http: HttpClient) { super(http) }
 
-  getAll<Card>(url: string) : Observable<Card> {
+  getAll<Card>(url: string): Observable<Card> {
     return this.getData<Card>(`${url}`);
   }
-  
+
   // Padrão
   // getAll<Card>(url: string) : Observable<Card> {
   //   return this.http.get<Card>(`${this.urlApi}${url}`);

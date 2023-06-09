@@ -8,12 +8,12 @@ import { environment } from 'src/environments/environment';
 })
 export class BaseService {
 
-protected urlApi: string = environment.urlApi;
+  protected urlApi: string = environment.urlApi;
 
-constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-protected getData<T>(url: string): Observable<T> {
+  protected getData<T>(url: string): Observable<T> {
     return this.http.get<any>(`${this.urlApi}${url}`)
-  } 
+  }
 
 }
