@@ -1,5 +1,5 @@
 <div class="center-content">
-    <mat-card class="example-card">
+    <mat-card class="card">
         <mat-card-header>
             <!-- <mat-card-title>Teste</mat-card-title> -->
             <!-- <mat-card-subtitle>Teste</mat-card-subtitle> -->
@@ -7,13 +7,13 @@
         <mat-card-content>
             <mat-tab-group>
                 <mat-tab label="Login">
-                    <mat-form-field class="example-full-width">
+                    <mat-form-field class="full-width">
                         <mat-label>E-mail</mat-label>
                         <input type="email" matInput placeholder="E-mail" value="" [(ngModel)]="email">
                         <mat-icon matSuffix>email</mat-icon>
                     </mat-form-field>
 
-                    <mat-form-field class="example-full-width">
+                    <mat-form-field class="full-width">
                         <mat-label>Senha</mat-label>
                         <input type="password" matInput placeholder="Senha" [(ngModel)]="password">
                         <mat-icon matSuffix>vpn_key</mat-icon>
@@ -21,18 +21,18 @@
                     <button mat-button color="primary" (click)="login()">Login</button>
                 </mat-tab>
                 <mat-tab label="Registro">
-                    <mat-form-field class="example-full-width">
+                    <mat-form-field class="full-width">
                         <mat-label>E-mail</mat-label>
                         <input type="email" matInput placeholder="E-mail" value="" [(ngModel)]="remail">
                         <mat-icon matSuffix>email</mat-icon>
                     </mat-form-field>
 
-                    <mat-form-field class="example-full-width">
+                    <mat-form-field class="full-width">
                         <mat-label>Senha</mat-label>
                         <input type="password" matInput placeholder="Senha" [(ngModel)]="rpassword">
                         <mat-icon matSuffix>vpn_key</mat-icon>
                     </mat-form-field>
-                    <mat-form-field class="example-full-width">
+                    <mat-form-field class="full-width">
                         <mat-label>Confirme a Senha</mat-label>
                         <input type="password" matInput placeholder="Senha" [(ngModel)]="rcpassword">
                         <mat-icon matSuffix>vpn_key</mat-icon>
