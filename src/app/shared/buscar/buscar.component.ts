@@ -21,6 +21,11 @@ export class BuscarComponent {
     this.ordenarPor.emit(event.value);
   }
 
+  limparInput(event: Event) {
+    const input = event.target as HTMLInputElement;
+    input.value = '';
+  }
+
 }
 
 
