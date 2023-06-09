@@ -7,7 +7,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  title = 'demoApp';
+  title = 'Teste';
   email: string | undefined;
   password: string | undefined;
   remail: string | undefined;
@@ -17,14 +17,14 @@ export class LoginComponent {
   constructor(private snackBar: MatSnackBar) {
   }
 
-  register() {
+  registro() {
   }
 
   login() {
     if (this.email == "admin" && this.password == "admin") {
-      this.snackBar.open('Login Successful', '', { duration: 1000 })
+      this.snackBar.open('Login realizado com sucesso!', '', { duration: 2000 })
     } else {
-      this.snackBar.open('Login error', '', { duration: 1000 })
+      this.snackBar.open('Usuário ou senha inválido.', '', { duration: 2000 })
     }
   }
 
