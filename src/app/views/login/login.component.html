@@ -6,7 +6,7 @@
         </mat-card-header>
         <mat-card-content>
             <mat-tab-group>
-                <mat-tab label="Login">
+                <mat-tab label="Entrar">
                     <mat-form-field class="full-width">
                         <mat-label>E-mail</mat-label>
                         <input type="email" matInput placeholder="E-mail" value="" [(ngModel)]="email">
@@ -18,9 +18,9 @@
                         <input type="password" matInput placeholder="Senha" [(ngModel)]="password">
                         <mat-icon matSuffix>vpn_key</mat-icon>
                     </mat-form-field>
-                    <button mat-button color="primary" (click)="login()">Login</button>
+                    <button mat-button color="primary" (click)="login()">Entrar</button>
                 </mat-tab>
-                <mat-tab label="Registro">
+                <mat-tab label="Criar conta">
                     <mat-form-field class="full-width">
                         <mat-label>E-mail</mat-label>
                         <input type="email" matInput placeholder="E-mail" value="" [(ngModel)]="remail">
@@ -33,11 +33,11 @@
                         <mat-icon matSuffix>vpn_key</mat-icon>
                     </mat-form-field>
                     <mat-form-field class="full-width">
-                        <mat-label>Confirme a Senha</mat-label>
+                        <mat-label>Confirme a senha</mat-label>
                         <input type="password" matInput placeholder="Senha" [(ngModel)]="rcpassword">
                         <mat-icon matSuffix>vpn_key</mat-icon>
                     </mat-form-field>
-                    <button mat-button color="primary" (click)="registro()">Registro</button>
+                    <button mat-button color="primary" (click)="registro()">Criar conta</button>
                 </mat-tab>
             </mat-tab-group>
         </mat-card-content>

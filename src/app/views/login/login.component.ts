@@ -24,7 +24,7 @@ export class LoginComponent {
     if (this.email == "admin" && this.password == "admin") {
       this.snackBar.open('Login realizado com sucesso!', '', { duration: 2000 })
     } else {
-      this.snackBar.open('Usuário ou senha inválido.', '', { duration: 2000 })
+      this.snackBar.open('Usuário ou senha estão incorretos.', '', { duration: 2000 })
     }
   }
 
