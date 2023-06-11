@@ -8,12 +8,12 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: '**',
-    redirectTo: 'login'
-  },
-  {
     path: 'home',
     loadChildren: () => import('./views/home/home.module').then(m => m.HomeModule)
+  },
+  {
+    path: '**',
+    redirectTo: 'login'
   },
 ];
 
