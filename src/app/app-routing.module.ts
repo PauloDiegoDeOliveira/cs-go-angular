@@ -11,10 +11,10 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () => import('./views/home/home.module').then(m => m.HomeModule)
   },
-  // {
-  //   path: '**',
-  //   redirectTo: 'home'
-  // },
+  {
+    path: '**',
+    redirectTo: 'login'
+  },
 ];
 
 @NgModule({
