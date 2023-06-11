@@ -1,8 +1,9 @@
 <mat-toolbar class="toolbar">
   <div class="toolbar__logo">
-    <button mat-icon-button class="toolbar__menu" aria-label="icon-button with menu icon">
+    <button *ngIf="!paginaLogin" mat-icon-button class="toolbar__menu" aria-label="icon-button with menu icon">
       <mat-icon>menu</mat-icon>
     </button>
+
     <app-logo></app-logo>
   </div>
 </mat-toolbar>
