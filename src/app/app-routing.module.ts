@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './views/home/home.component';
 import { LoginComponent } from './views/login/login.component';
-
 
 const routes: Routes = [
   {
@@ -11,12 +9,12 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    component: HomeComponent
+    loadChildren: () => import('./views/home/home.module').then(m => m.HomeModule)
   },
-  {
-    path: '**',
-    redirectTo: 'home'
-  },
+  // {
+  //   path: '**',
+  //   redirectTo: 'home'
+  // },
 ];
 
 @NgModule({

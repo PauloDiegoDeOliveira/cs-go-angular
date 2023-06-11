@@ -4,7 +4,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
-import { HomeModule } from './views/home/home.module';
 import { LoginModule } from './views/login/login.module';
 
 @NgModule({
@@ -16,7 +15,6 @@ import { LoginModule } from './views/login/login.module';
     AppRoutingModule,
     NoopAnimationsModule,
     CoreModule,
-    HomeModule,
     LoginModule
   ],
   providers: [],
