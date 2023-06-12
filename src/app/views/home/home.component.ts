@@ -45,6 +45,9 @@ export class HomeComponent implements OnInit {
   ordenar(ordenar: string) {
     console.log('Evento de ordenação recebido com valor:', ordenar);
     switch (ordenar) {
+      case 'padrão':
+        this.filtroCards = [...this.cards];
+        break;
       case 'crescente':
         this.filtroCards = [...this.filtroCards.sort((a, b) => a.name.localeCompare(b.name))];
         break;
