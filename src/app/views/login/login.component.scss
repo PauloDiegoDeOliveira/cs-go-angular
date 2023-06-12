@@ -21,3 +21,10 @@
     height: 40px;
     background-color: #3F51B5;
 }
+
+::ng-deep{
+    .mat-mdc-tab-body-content {
+        overflow: hidden !important;
+    }
+}
+
