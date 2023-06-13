@@ -5,15 +5,16 @@ import { BuscarComponent } from './buscar/buscar.component';
 import { CardComponent } from './card/card.component';
 import { LogoComponent } from './logo/logo.component';
 import { TituloComponent } from './titulo/titulo.component';
-import {MatIconModule} from '@angular/material/icon';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MaisComponent } from './mais/mais.component';
-import {MatButtonModule} from '@angular/material/button';
-import {MatCardModule} from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 import { MensagemComponent } from './mensagem/mensagem.component';
 import { HttpClientModule } from '@angular/common/http';
+import { SkeletonComponent } from '../views/home/components/skeleton/skeleton.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
     TituloComponent,
     MaisComponent,
     MensagemComponent,
+    SkeletonComponent
 
   ],
   imports: [
@@ -42,7 +44,8 @@ import { HttpClientModule } from '@angular/common/http';
     CardComponent,
     LogoComponent,
     TituloComponent,
-    MaisComponent
+    MaisComponent,
+    SkeletonComponent
   ],
 })
 export class SharedModule { }

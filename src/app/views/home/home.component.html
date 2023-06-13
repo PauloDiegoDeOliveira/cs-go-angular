@@ -4,7 +4,11 @@
     <app-buscar (termoPesquisa)="pesquisa($event)" (ordenarPor)="ordenar($event)"></app-buscar>
 </div>
 
-<div class="card">
+<div *ngIf="isLoading" class="skeleton">
+    <app-skeleton></app-skeleton>
+</div>
+
+<div *ngIf="!isLoading" class="card">
     <app-card *ngFor="let card of filtroCards" [card]="card"></app-card>
 </div>
 

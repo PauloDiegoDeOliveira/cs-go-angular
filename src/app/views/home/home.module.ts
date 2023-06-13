@@ -3,18 +3,15 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home.routing.module';
-import { SkeletonComponent } from './components/skeleton/skeleton.component';
-
 
 @NgModule({
   declarations: [
-    HomeComponent,
-    SkeletonComponent
+    HomeComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
-    HomeRoutingModule
+    HomeRoutingModule,
   ],
   exports: [
     HomeComponent

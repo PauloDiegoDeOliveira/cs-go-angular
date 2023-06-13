@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
   filtroCards: Card[] = [];
   exibirQuantidade: number = 20;
   pesquisaAtual: string = '';
+  isLoading: boolean = true;
 
   constructor(private cardService: CardService) { }
 
@@ -20,6 +21,7 @@ export class HomeComponent implements OnInit {
   }
 
   getAllCards() {
+    this.isLoading = true;
     this.cardService.getAll<Card>('skins.json').subscribe({
       next: (data: Card) => {
         if (Array.isArray(data)) {
@@ -29,8 +31,12 @@ export class HomeComponent implements OnInit {
         else {
           console.error('Não foi possível obter os dados.');
         }
+        this.isLoading = false;
       },
-      error: (error) => console.error(error)
+      error: (error) => {
+        console.error(error);
+        this.isLoading = false;
+      }
     });
   }
 
