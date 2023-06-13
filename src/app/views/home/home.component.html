@@ -4,14 +4,16 @@
     <app-buscar (termoPesquisa)="pesquisa($event)" (ordenarPor)="ordenar($event)"></app-buscar>
 </div>
 
-<div *ngIf="isLoading" class="skeleton">
-    <app-skeleton></app-skeleton>
+<div *ngIf="isLoading; else cardsLoaded">
+    <app-skeleton *ngFor="let skeleton of skeletonCards"></app-skeleton>
 </div>
 
-<div *ngIf="!isLoading" class="card">
-    <app-card *ngFor="let card of filtroCards" [card]="card"></app-card>
-</div>
+<ng-template #cardsLoaded>
+    <div class="card">
+        <app-card *ngFor="let card of filtroCards" [card]="card"></app-card>
+    </div>
 
-<div class="mais">
-    <app-mais (click)="mostrarMais()"></app-mais>
-</div>
+    <div class="mais">
+        <app-mais (click)="mostrarMais()"></app-mais>
+    </div>
+</ng-template>

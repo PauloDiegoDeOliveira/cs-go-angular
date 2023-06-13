@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   exibirQuantidade: number = 20;
   pesquisaAtual: string = '';
   isLoading: boolean = true;
+  skeletonCards: number[] = new Array(1);
 
   constructor(private cardService: CardService) { }
 
