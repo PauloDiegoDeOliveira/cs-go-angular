@@ -8,9 +8,9 @@ import { CardService } from 'src/app/services/card.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
   cards: Card[] = [];
   filtroCards: Card[] = [];
+  exibirQuantidade: number = 20;
 
   constructor(private cardService: CardService) { }
 
@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
       next: (data: Card) => {
         if (Array.isArray(data)) {
           this.cards = data;
-          this.filtroCards = data;
+          this.filtroCards = this.cards.slice(0, this.exibirQuantidade);
         }
         else {
           console.error('Não foi possível obter os dados.');
@@ -59,6 +59,11 @@ export class HomeComponent implements OnInit {
         this.filtroCards = [...this.cards];
         break;
     }
+  }
+
+  mostrarMais() {
+    this.exibirQuantidade += 20;
+    this.filtroCards = this.cards.slice(0, this.exibirQuantidade);
   }
 
 }
