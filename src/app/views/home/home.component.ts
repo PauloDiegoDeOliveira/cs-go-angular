@@ -11,6 +11,7 @@ export class HomeComponent implements OnInit {
   cards: Card[] = [];
   filtroCards: Card[] = [];
   exibirQuantidade: number = 20;
+  pesquisaAtual: string = '';
 
   constructor(private cardService: CardService) { }
 
@@ -35,10 +36,12 @@ export class HomeComponent implements OnInit {
 
   pesquisa(pesquisa: string) {
     console.log('Evento recebido com valor:', pesquisa);
+    this.pesquisaAtual = pesquisa;
+    this.exibirQuantidade = 20;
     if (!pesquisa) {
-      this.filtroCards = this.cards;
+      this.filtroCards = this.cards.slice(0, this.exibirQuantidade);
     } else {
-      this.filtroCards = this.cards.filter(card => card.name.toLowerCase().includes(pesquisa.toLowerCase()));
+      this.filtroCards = this.cards.filter(card => card.name.toLowerCase().includes(pesquisa.toLowerCase())).slice(0, this.exibirQuantidade);
     }
   }
 
@@ -63,7 +66,10 @@ export class HomeComponent implements OnInit {
 
   mostrarMais() {
     this.exibirQuantidade += 20;
-    this.filtroCards = this.cards.slice(0, this.exibirQuantidade);
+    if (this.pesquisaAtual) {
+      this.filtroCards = this.cards.filter(card => card.name.toLowerCase().includes(this.pesquisaAtual.toLowerCase())).slice(0, this.exibirQuantidade);
+    } else {
+      this.filtroCards = this.cards.slice(0, this.exibirQuantidade);
+    }
   }
-
 }
