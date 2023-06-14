@@ -14,7 +14,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MensagemComponent } from './mensagem/mensagem.component';
 import { HttpClientModule } from '@angular/common/http';
-import { SkeletonComponent } from '../views/home/components/skeleton/skeleton.component';
 
 @NgModule({
   declarations: [
@@ -25,8 +24,6 @@ import { SkeletonComponent } from '../views/home/components/skeleton/skeleton.co
     TituloComponent,
     MaisComponent,
     MensagemComponent,
-    SkeletonComponent
-
   ],
   imports: [
     CommonModule,
@@ -45,7 +42,6 @@ import { SkeletonComponent } from '../views/home/components/skeleton/skeleton.co
     LogoComponent,
     TituloComponent,
     MaisComponent,
-    SkeletonComponent
   ],
 })
 export class SharedModule { }
