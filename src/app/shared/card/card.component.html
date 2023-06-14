@@ -1,5 +1,11 @@
 <ng-container *ngIf="!card; else cardTemplate">
-    <div class="skeleton"></div>
+    <div class="skeleton">
+        <div class="skeleton__title"></div>
+        <div class="skeleton__subtitle"></div>
+        <div class="skeleton__image"></div>
+        <div class="skeleton__content-title"></div>
+        <div class="skeleton__content-subtitle"></div>
+    </div>
 </ng-container>
 
 <ng-template #cardTemplate>

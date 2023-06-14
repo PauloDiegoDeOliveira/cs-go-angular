@@ -15,9 +15,43 @@
     width: 300px;
     height: 400px;
     border-radius: 10px;
-    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-    background-size: 200% 100%;
-    animation: loading 1.5s infinite;
+    padding: 10px;
+
+    &__title,
+    &__subtitle,
+    &__image,
+    &__content-title,
+    &__content-subtitle {
+        background: linear-gradient(90deg, #f0f0f0 25%, #e0e0f0 50%, #f0f0f0 75%);
+        background-size: 200% 100%;
+        animation: loading 1.5s infinite;
+        margin-bottom: 10px;
+    }
+
+    &__title {
+        width: 70%;
+        height: 20px;
+    }
+
+    &__subtitle {
+        width: 50%;
+        height: 20px;
+    }
+
+    &__image {
+        width: 100%;
+        height: 200px;
+    }
+
+    &__content-title {
+        width: 30%;
+        height: 20px;
+    }
+
+    &__content-subtitle {
+        width: 60%;
+        height: 20px;
+    }
 }
 
 @keyframes loading {
