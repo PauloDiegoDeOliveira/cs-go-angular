@@ -14,6 +14,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MensagemComponent } from './mensagem/mensagem.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PaginacaoComponent } from './paginacao/paginacao.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,7 @@ import { HttpClientModule } from '@angular/common/http';
     TituloComponent,
     MaisComponent,
     MensagemComponent,
+    PaginacaoComponent,
   ],
   imports: [
     CommonModule,
@@ -33,7 +36,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatIconModule,
     MatButtonModule,
     MatCardModule,
-    HttpClientModule
+    HttpClientModule,
+    MatPaginatorModule
   ],
   exports: [
     BannerComponent,
@@ -42,6 +46,7 @@ import { HttpClientModule } from '@angular/common/http';
     LogoComponent,
     TituloComponent,
     MaisComponent,
+    PaginacaoComponent
   ],
 })
 export class SharedModule { }
