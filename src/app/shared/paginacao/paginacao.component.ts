@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-paginacao',
@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./paginacao.component.scss']
 })
 export class PaginacaoComponent {
+
+  @Input() pageIndex: number | undefined;
+  @Input() pageSize: number | undefined;
+  @Output() pageChange = new EventEmitter();
 
 }

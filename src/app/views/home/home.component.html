@@ -9,7 +9,7 @@
 </div>
 
 <div class="paginacao">
-    <app-paginacao></app-paginacao>
+    <app-paginacao [pageIndex]="pageIndex" [pageSize]="pageSize" (pageChange)="paginaChange($event)"></app-paginacao>
 </div>
 
 <!-- <div class="mais">
