@@ -19,7 +19,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.getAllCards();
-    this.getAllCards();
     this.paginaCards();
   }
 
@@ -44,6 +43,12 @@ export class HomeComponent implements OnInit {
     let startIndex = this.pageIndex * this.pageSize;
     let endIndex = startIndex + this.pageSize;
     this.filtroCards = this.cards.slice(startIndex, endIndex);
+  }
+
+  paginaChange(event: any) {
+    this.pageIndex = event.pageIndex;
+    this.pageSize = event.pageSize;
+    this.paginaCards();
   }
 
   pesquisa(pesquisa: string) {
@@ -75,20 +80,5 @@ export class HomeComponent implements OnInit {
         break;
     }
   }
-
-  paginaChange(event: any) {
-    this.pageIndex = event.pageIndex;
-    this.pageSize = event.pageSize;
-    this.paginaCards();
-  }
-
-  // mostrarMais() {
-  //   this.exibirQuantidade += 20;
-  //   if (this.pesquisaAtual) {
-  //     this.filtroCards = this.cards.filter(card => card.name.toLowerCase().includes(this.pesquisaAtual.toLowerCase())).slice(0, this.exibirQuantidade);
-  //   } else {
-  //     this.filtroCards = this.cards.slice(0, this.exibirQuantidade);
-  //   }
-  // }
 
 }

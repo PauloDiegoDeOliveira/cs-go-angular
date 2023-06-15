@@ -14,13 +14,4 @@ export class CardService extends BaseService {
     return this.getData<Card>(`${url}`);
   }
 
-  // Padrão
-  // getAll<Card>(url: string) : Observable<Card> {
-  //   return this.http.get<Card>(`${this.urlApi}${url}`);
-  // }  
-
-  // Generico
-  // public getAll<T>(url: string): Observable<T> {
-  //     return this.http.get<T>(`${this.urlApi}${url}`)}
-
 }
