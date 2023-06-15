@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, delay } from 'rxjs';
+import { Observable } from 'rxjs';
 import { BaseService } from './base.service';
 
 @Injectable({
@@ -11,7 +11,7 @@ export class CardService extends BaseService {
   constructor(http: HttpClient) { super(http) }
 
   getAll<Card>(url: string): Observable<Card> {
-    return this.getData<Card>(`${url}`).pipe(delay(2000));
+    return this.getData<Card>(`${url}`);
   }
 
   // Padrão
