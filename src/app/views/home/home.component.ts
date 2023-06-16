@@ -66,7 +66,7 @@ export class HomeComponent implements OnInit {
     console.log('Evento de ordenação recebido com valor:', ordenar);
     switch (ordenar) {
       case 'padrão':
-        this.filtroCards = [...this.cards];
+        this.paginaCards();
         break;
       case 'crescente':
         this.filtroCards = [...this.filtroCards.sort((a, b) => a.name.localeCompare(b.name))];
@@ -74,9 +74,9 @@ export class HomeComponent implements OnInit {
       case 'decrescente':
         this.filtroCards = [...this.filtroCards.sort((a, b) => b.name.localeCompare(a.name))];
         break;
-      // TODO: Fazer caso para novos e antigos com base no criadoEm
+      // TODO: Adicionar caso para ordenar por "criadoEm"
       default:
-        this.filtroCards = [...this.cards];
+        this.paginaCards();
         break;
     }
   }
