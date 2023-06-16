@@ -6,7 +6,6 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./buscar.component.scss']
 })
 export class BuscarComponent {
-
   @Output() termoPesquisa = new EventEmitter<string>();
   @Output() ordenarPor = new EventEmitter<string>();
 

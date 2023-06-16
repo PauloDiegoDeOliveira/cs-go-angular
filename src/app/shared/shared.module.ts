@@ -15,7 +15,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MensagemComponent } from './mensagem/mensagem.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PaginacaoComponent } from './paginacao/paginacao.component';
-import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginator';
+import { CustomPaginatorIntl } from './custom-paginator-intl/custom-paginator-intl.service';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatCardModule,
     HttpClientModule,
     MatPaginatorModule
+  ],
+  providers: [
+    { provide: MatPaginatorIntl, useClass: CustomPaginatorIntl }
   ],
   exports: [
     BannerComponent,

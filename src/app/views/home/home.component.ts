@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   exibirQuantidade: number = 20;
   pesquisaAtual: string = '';
   pageIndex: number = 0;
-  pageSize: number = 20;
+  pageSize: number = 10;
 
   constructor(private cardService: CardService) { }
 
