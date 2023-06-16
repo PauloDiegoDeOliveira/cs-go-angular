@@ -4,11 +4,20 @@
         max-width: 900px !important;
         overflow-y: hidden;
     }
+
+    .mdc-dialog__content {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
 }
 
-.description-text {
-    display: block;
-    max-height: 100px;
-    overflow-y: auto;
-    background-color: yellow;
-}
+
+// .description-text {
+//     display: block;
+//     max-height: 100px;
+//     overflow-y: auto;
+//     background-color: yellow;
+// }
