@@ -1,0 +1,11 @@
+.mat-dialog-container {
+    max-height: 90vh !important;
+    overflow-y: auto;
+}
+
+.description-text {
+    display: block;
+    max-height: 100px;
+    overflow-y: auto;
+    background-color: yellow;
+}
