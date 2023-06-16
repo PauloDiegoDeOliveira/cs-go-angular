@@ -9,9 +9,6 @@
 </div>
 
 <div class="paginacao">
-    <app-paginacao [pageIndex]="pageIndex" [pageSize]="pageSize" (pageChange)="paginaChange($event)"></app-paginacao>
+    <app-paginacao [pageIndex]="pageIndex" [pageSize]="pageSize" [length]="cards.length"
+        (pageChange)="paginaChange($event)"></app-paginacao>
 </div>
-
-<!-- <div class="mais">
-    <app-mais (click)="mostrarMais()"></app-mais>
-</div> -->
