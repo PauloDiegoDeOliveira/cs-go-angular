@@ -1,4 +1,3 @@
-// custom-paginator-intl.ts
 import { MatPaginatorIntl } from '@angular/material/paginator';
 
 export class CustomPaginatorIntl extends MatPaginatorIntl {
