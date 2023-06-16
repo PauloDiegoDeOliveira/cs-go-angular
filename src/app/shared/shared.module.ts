@@ -16,6 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { PaginacaoComponent } from './paginacao/paginacao.component';
 import { MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginator';
 import { CustomPaginatorIntl } from './custom-paginator-intl/custom-paginator-intl.service';
+import { DialogComponent } from './Dialog/dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { CustomPaginatorIntl } from './custom-paginator-intl/custom-paginator-in
     TituloComponent,
     MensagemComponent,
     PaginacaoComponent,
+    DialogComponent
   ],
   imports: [
     CommonModule,
@@ -36,7 +39,8 @@ import { CustomPaginatorIntl } from './custom-paginator-intl/custom-paginator-in
     MatButtonModule,
     MatCardModule,
     HttpClientModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatDialogModule
   ],
   providers: [
     { provide: MatPaginatorIntl, useClass: CustomPaginatorIntl }
@@ -47,7 +51,8 @@ import { CustomPaginatorIntl } from './custom-paginator-intl/custom-paginator-in
     CardComponent,
     LogoComponent,
     TituloComponent,
-    PaginacaoComponent
+    PaginacaoComponent,
+    DialogComponent
   ],
 })
 export class SharedModule { }

@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Card } from 'src/app/models/responses/card';
+import { DialogComponent } from '../Dialog/dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-card',
@@ -11,4 +13,15 @@ export class CardComponent {
   @Input() card: Card | undefined;
   mostrarDetalhes: boolean = false;
 
+  constructor(private dialog: MatDialog) { }
+
+  openDialog() {
+    this.dialog.open(DialogComponent, {
+      data: {
+        card: this.card
+      }
+    });
+  }
+
 }
+
