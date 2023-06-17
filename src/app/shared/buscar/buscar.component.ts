@@ -8,6 +8,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class BuscarComponent {
   @Output() termoPesquisa = new EventEmitter<string>();
   @Output() ordenarPor = new EventEmitter<string>();
+  @Output() tipoItemSelecionado = new EventEmitter<string>();
 
   pesquisa(event: Event) {
     const input = event.target as HTMLInputElement;
@@ -18,6 +19,11 @@ export class BuscarComponent {
   ordenar(event: any) {
     console.log('Emitindo evento de ordenação com valor:', event.value);
     this.ordenarPor.emit(event.value);
+  }
+
+  selecionarTipoItem(event: any) {
+    console.log('Emitindo evento de tipo de item selecionado com valor:', event.value);
+    this.tipoItemSelecionado.emit(event.value);
   }
 
 }

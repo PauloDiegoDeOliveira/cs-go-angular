@@ -1,14 +1,14 @@
 <div class="search">
     <mat-form-field appearance="outline">
         <mat-label>Todos os itens</mat-label>
-        <mat-select>
-            <mat-option value="option">Todos</mat-option>
-            <mat-option value="option">Faca</mat-option>
-            <mat-option value="option">Luva</mat-option>
-            <mat-option value="option">Metralhadora</mat-option>
-            <mat-option value="option">Pistola</mat-option>
-            <mat-option value="option">Rifle</mat-option>
-            <mat-option value="option">Rifle de Precisão</mat-option>
+        <mat-select (selectionChange)="selecionarTipoItem($event)">
+            <mat-option value="todos">Todos</mat-option>
+            <mat-option value="faca">Faca</mat-option>
+            <mat-option value="luva">Luva</mat-option>
+            <mat-option value="metralhadora">Metralhadora</mat-option>
+            <mat-option value="pistola">Pistola</mat-option>
+            <mat-option value="rifle">Rifle</mat-option>
+            <mat-option value="rifle de precisão">Rifle de Precisão</mat-option>
         </mat-select>
     </mat-form-field>
 
