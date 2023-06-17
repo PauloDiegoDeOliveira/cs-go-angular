@@ -42,8 +42,13 @@ export class HomeComponent implements OnInit {
   paginaCards() {
     let startIndex = this.pageIndex * this.pageSize;
     let endIndex = startIndex + this.pageSize;
-    this.filtroCards = this.cards.slice(startIndex, endIndex);
+    if (this.pesquisaAtual) {
+      this.filtroCards = this.filtroCards.slice(startIndex, endIndex);
+    } else {
+      this.filtroCards = this.cards.slice(startIndex, endIndex);
+    }
   }
+
 
   paginaChange(event: any) {
     this.pageIndex = event.pageIndex;
@@ -58,9 +63,12 @@ export class HomeComponent implements OnInit {
     if (!pesquisa) {
       this.filtroCards = this.cards.slice(0, this.exibirQuantidade);
     } else {
-      this.filtroCards = this.cards.filter(card => card.name.toLowerCase().includes(pesquisa.toLowerCase())).slice(0, this.exibirQuantidade);
+      this.filtroCards = this.cards.filter(card => card.name.toLowerCase().includes(pesquisa.toLowerCase()));
     }
+    this.pageIndex = 0; // reset the page index
+    this.paginaCards();
   }
+
 
   ordenar(ordenar: string) {
     console.log('Evento de ordenação recebido com valor:', ordenar);
