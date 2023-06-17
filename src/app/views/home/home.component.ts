@@ -92,7 +92,7 @@ export class HomeComponent implements OnInit {
     if (tipoItem === 'todos') {
       this.filtroCards = this.cards;
     } else {
-      this.filtroCards = this.cards.filter(card => card.weapon.toLowerCase().includes(tipoItem.toLowerCase()));
+      this.filtroCards = this.cards.filter(card => card.name.toLowerCase().includes(tipoItem.toLowerCase()));
       console.log('filtroCards agora é:', this.filtroCards);
     }
     this.pageIndex = 0;
