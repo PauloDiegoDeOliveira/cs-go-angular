@@ -49,7 +49,6 @@ export class HomeComponent implements OnInit {
     }
   }
 
-
   paginaChange(event: any) {
     this.pageIndex = event.pageIndex;
     this.pageSize = event.pageSize;
@@ -65,10 +64,9 @@ export class HomeComponent implements OnInit {
     } else {
       this.filtroCards = this.cards.filter(card => card.name.toLowerCase().includes(pesquisa.toLowerCase()));
     }
-    this.pageIndex = 0; // reset the page index
+    this.pageIndex = 0;
     this.paginaCards();
   }
-
 
   ordenar(ordenar: string) {
     console.log('Evento de ordenação recebido com valor:', ordenar);
