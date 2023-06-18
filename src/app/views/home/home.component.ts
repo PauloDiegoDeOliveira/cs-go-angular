@@ -62,9 +62,17 @@ export class HomeComponent implements OnInit {
       case Ordem.Crescente:
         this.cardsMostrados = [...this.cardsMostrados.sort((a, b) => a.name.localeCompare(b.name))];
         break;
+
       case Ordem.Decrescente:
         this.cardsMostrados = [...this.cardsMostrados.sort((a, b) => b.name.localeCompare(a.name))];
         break;
+
+      case Ordem.Padrao:
+        const indiceInicial = this.pageIndex * this.pageSize;
+        const indiceFinal = indiceInicial + this.pageSize;
+        this.cardsMostrados = [...this.cards.slice(indiceInicial, indiceFinal)];
+        break;
+
       default:
         this.atualizarCardsMostrados();
         break;
