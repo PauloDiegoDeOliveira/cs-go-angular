@@ -1,7 +1,8 @@
 <app-banner></app-banner>
 
 <div class="buscar">
-    <app-buscar (termoPesquisa)="pesquisarCards($event)" (ordenarPor)="ordenarCards($event)">
+    <app-buscar (termoPesquisa)="pesquisarCards($event)" (ordenarPor)="ordenarCards($event)"
+        (tipoItemSelecionado)="filtrarPorTipoItem($event)">
     </app-buscar>
 </div>
 

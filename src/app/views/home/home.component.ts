@@ -80,7 +80,10 @@ export class HomeComponent implements OnInit {
     console.log('Evento de ordenação recebido:', ordem);
   }
 
-  filtrarPorTipoItem(tipoItem: string) {
+  filtrarPorTipoItem(tipoItem: string | null) {
+    if (!tipoItem)
+      return;
+
     if (tipoItem === 'todos') {
       this.cards = this.cards;
     } else {
