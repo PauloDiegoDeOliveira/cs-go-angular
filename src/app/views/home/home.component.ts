@@ -35,10 +35,12 @@ export class HomeComponent implements OnInit {
         console.error(error);
       }
     });
+    console.log('Buscando todos os cards');
   }
 
   atualizarCardsMostrados() {
     this.cardsMostrados = this.cards.slice(this.pageIndex * this.pageSize, (this.pageIndex + 1) * this.pageSize);
+    console.log('Atualizando cards mostrados');
   }
 
   mudancaPagina(event: { pageIndex: number, pageSize: number }) {
