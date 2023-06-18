@@ -53,12 +53,12 @@ export class HomeComponent implements OnInit {
     this.atualizarCardsMostrados();
   }
 
-  ordenarCards(ordem: string) {
+  ordenarCards(ordem: Ordem) {
     switch (ordem) {
-      case 'crescente':
+      case Ordem.Crescente:
         this.cardsMostrados = [...this.cardsMostrados.sort((a, b) => a.name.localeCompare(b.name))];
         break;
-      case 'decrescente':
+      case Ordem.Decrescente:
         this.cardsMostrados = [...this.cardsMostrados.sort((a, b) => b.name.localeCompare(a.name))];
         break;
       default:
