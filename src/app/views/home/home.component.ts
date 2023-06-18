@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
   }
 
   obterTodosCards() {
-    this.cardService.getAll<Card>('skins.json').subscribe({
+    this.cardService.obterTodosCards<Card>('skins.json').subscribe({
       next: (data: Card) => {
         if (Array.isArray(data)) {
           this.cards = data;

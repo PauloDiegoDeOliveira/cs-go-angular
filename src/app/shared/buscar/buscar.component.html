@@ -1,7 +1,7 @@
 <div class="search">
     <mat-form-field appearance="outline">
         <mat-label>Todos os itens</mat-label>
-        <mat-select (selectionChange)="selecionarTipoItem($event)">
+        <mat-select (selectionChange)="filtrarPorTipoItem($event)">
             <mat-option value="todos">Todos</mat-option>
             <mat-option value="faca">Faca</mat-option>
             <mat-option value="luva">Luva</mat-option>
@@ -10,13 +10,13 @@
 
     <mat-form-field appearance="outline">
         <mat-label>Pesquisar</mat-label>
-        <input matInput placeholder="Ex: Faca" (input)="pesquisa($event)">
+        <input matInput placeholder="Ex: Faca" (input)="pesquisarCards($event)">
         <mat-icon matSuffix>search</mat-icon>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
         <mat-label>Ordenar por</mat-label>
-        <mat-select (selectionChange)="ordenar($event)">
+        <mat-select (selectionChange)="ordenarCards($event)">
             <mat-option value="padrao">Padrão</mat-option>
             <mat-option value="crescente">Crescente</mat-option>
             <mat-option value="decrescente">Decrescente</mat-option>

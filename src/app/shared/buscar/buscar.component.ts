@@ -11,19 +11,19 @@ export class BuscarComponent {
   @Output() ordenarPor = new EventEmitter<Ordem>();
   @Output() tipoItemSelecionado = new EventEmitter<string | null>();
 
-  pesquisa(event: Event) {
+  pesquisarCards(event: Event) {
     const input = event.target as HTMLInputElement;
     console.log('Emitindo evento com valor:', input.value);
     this.termoPesquisa.emit(input.value);
   }
 
-  ordenar(event: any) {
+  ordenarCards(event: any) {
     const valorOrdenacao = event.value as Ordem;
     console.log('Emitindo evento de ordenação com valor:', valorOrdenacao);
     this.ordenarPor.emit(valorOrdenacao);
   }
 
-  selecionarTipoItem(event: any) {
+  filtrarPorTipoItem(event: any) {
     console.log('Emitindo evento de tipo de item selecionado com valor:', event.value);
     this.tipoItemSelecionado.emit(event.value);
   }

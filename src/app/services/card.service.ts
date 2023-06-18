@@ -10,7 +10,7 @@ export class CardService extends BaseService {
 
   constructor(http: HttpClient) { super(http) }
 
-  getAll<Card>(url: string): Observable<Card> {
+  obterTodosCards<Card>(url: string): Observable<Card> {
     return this.getData<Card>(`${url}`);
   }
 
