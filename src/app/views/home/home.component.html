@@ -1,15 +1,16 @@
 <app-banner></app-banner>
 
 <div class="buscar">
-    <app-buscar (termoPesquisa)="pesquisa($event)" (ordenarPor)="ordenar($event)"
-        (tipoItemSelecionado)="filtrarPorTipoItem($event)"></app-buscar>
+    <app-buscar (termoPesquisa)="pesquisarCards($event)" (ordenarPor)="ordenarCards($event)">
+    </app-buscar>
 </div>
 
 <div class="card">
-    <app-card *ngFor="let card of filtroCards" [card]="card"></app-card>
+    <app-card *ngFor="let card of cardsMostrados" [card]="card"></app-card>
 </div>
 
 <div class="paginacao">
     <app-paginacao [pageIndex]="pageIndex" [pageSize]="pageSize" [length]="cards.length"
-        (pageChange)="paginaChange($event)"></app-paginacao>
+        (pageChange)="mudancaPagina($event)">
+    </app-paginacao>
 </div>

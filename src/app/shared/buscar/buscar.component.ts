@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { Ordem } from '../enum/ordem';
 
 @Component({
   selector: 'app-buscar',
@@ -7,8 +8,8 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class BuscarComponent {
   @Output() termoPesquisa = new EventEmitter<string>();
-  @Output() ordenarPor = new EventEmitter<string>();
-  @Output() tipoItemSelecionado = new EventEmitter<string>();
+  @Output() ordenarPor = new EventEmitter<Ordem>();
+  @Output() tipoItemSelecionado = new EventEmitter<string | null>();
 
   pesquisa(event: Event) {
     const input = event.target as HTMLInputElement;
@@ -17,8 +18,9 @@ export class BuscarComponent {
   }
 
   ordenar(event: any) {
-    console.log('Emitindo evento de ordenação com valor:', event.value);
-    this.ordenarPor.emit(event.value);
+    const valorOrdenacao = event.value as Ordem;
+    console.log('Emitindo evento de ordenação com valor:', valorOrdenacao);
+    this.ordenarPor.emit(valorOrdenacao);
   }
 
   selecionarTipoItem(event: any) {

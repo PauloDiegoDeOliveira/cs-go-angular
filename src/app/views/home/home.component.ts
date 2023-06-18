@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Card } from 'src/app/models/responses/card';
 import { CardService } from 'src/app/services/card.service';
+import { Ordem } from 'src/app/shared/enum/ordem';
 
 @Component({
   selector: 'app-home',
@@ -9,25 +10,22 @@ import { CardService } from 'src/app/services/card.service';
 })
 export class HomeComponent implements OnInit {
   cards: Card[] = [];
-  filtroCards: Card[] = [];
-  exibirQuantidade: number = 20;
-  pesquisaAtual: string = '';
+  cardsMostrados: Card[] = [];
   pageIndex: number = 0;
   pageSize: number = 10;
 
   constructor(private cardService: CardService) { }
 
   ngOnInit() {
-    this.getAllCards();
-    this.paginaCards();
+    this.obterTodosCards();
   }
 
-  getAllCards() {
+  obterTodosCards() {
     this.cardService.getAll<Card>('skins.json').subscribe({
       next: (data: Card) => {
         if (Array.isArray(data)) {
           this.cards = data;
-          this.paginaCards();
+          this.atualizarCardsMostrados();
         }
         else {
           console.error('Não foi possível obter os dados.');
@@ -39,64 +37,44 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  paginaCards() {
-    let startIndex = this.pageIndex * this.pageSize;
-    let endIndex = startIndex + this.pageSize;
-    if (this.pesquisaAtual) {
-      this.filtroCards = this.filtroCards.slice(startIndex, endIndex);
-    } else {
-      this.filtroCards = this.cards.slice(startIndex, endIndex);
-    }
+  atualizarCardsMostrados() {
+    this.cardsMostrados = this.cards.slice(this.pageIndex * this.pageSize, (this.pageIndex + 1) * this.pageSize);
   }
 
-  paginaChange(event: any) {
+  mudancaPagina(event: { pageIndex: number, pageSize: number }) {
     this.pageIndex = event.pageIndex;
     this.pageSize = event.pageSize;
-    this.paginaCards();
+    this.atualizarCardsMostrados();
   }
 
-  pesquisa(pesquisa: string) {
-    console.log('Evento recebido com valor:', pesquisa);
-    this.pesquisaAtual = pesquisa;
-    this.exibirQuantidade = 20;
-    if (!pesquisa) {
-      this.filtroCards = this.cards.slice(0, this.exibirQuantidade);
-    } else {
-      this.filtroCards = this.cards.filter(card => card.name.toLowerCase().includes(pesquisa.toLowerCase()));
-    }
+  pesquisarCards(termoPesquisa: string) {
+    this.cards = this.cards.filter(card => card.name.toLowerCase().includes(termoPesquisa.toLowerCase()));
     this.pageIndex = 0;
-    this.paginaCards();
+    this.atualizarCardsMostrados();
   }
 
-  ordenar(ordenar: string) {
-    console.log('Evento de ordenação recebido com valor:', ordenar);
-    switch (ordenar) {
-      case 'padrão':
-        this.paginaCards();
-        break;
+  ordenarCards(ordem: string) {
+    switch (ordem) {
       case 'crescente':
-        this.filtroCards = [...this.filtroCards.sort((a, b) => a.name.localeCompare(b.name))];
+        this.cardsMostrados = [...this.cardsMostrados.sort((a, b) => a.name.localeCompare(b.name))];
         break;
       case 'decrescente':
-        this.filtroCards = [...this.filtroCards.sort((a, b) => b.name.localeCompare(a.name))];
+        this.cardsMostrados = [...this.cardsMostrados.sort((a, b) => b.name.localeCompare(a.name))];
         break;
-      // TODO: Adicionar caso para ordenar por "criadoEm"
       default:
-        this.paginaCards();
+        this.atualizarCardsMostrados();
         break;
     }
   }
 
   filtrarPorTipoItem(tipoItem: string) {
-    console.log('Evento de tipo de item selecionado recebido com valor:', tipoItem);
     if (tipoItem === 'todos') {
-      this.filtroCards = this.cards;
+      this.cards = this.cards;
     } else {
-      this.filtroCards = this.cards.filter(card => card.name.toLowerCase().includes(tipoItem.toLowerCase()));
-      console.log('filtroCards agora é:', this.filtroCards);
+      this.cards = this.cards.filter(card => card.name.toLowerCase().includes(tipoItem.toLowerCase()));
     }
     this.pageIndex = 0;
-    this.paginaCards();
+    this.atualizarCardsMostrados();
   }
 
 }
