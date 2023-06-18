@@ -45,12 +45,14 @@ export class HomeComponent implements OnInit {
     this.pageIndex = event.pageIndex;
     this.pageSize = event.pageSize;
     this.atualizarCardsMostrados();
+    console.log('Evento de mudança de página recebido:', event);
   }
 
   pesquisarCards(termoPesquisa: string) {
     this.cards = this.cards.filter(card => card.name.toLowerCase().includes(termoPesquisa.toLowerCase()));
     this.pageIndex = 0;
     this.atualizarCardsMostrados();
+    console.log('Evento de pesquisa recebido:', termoPesquisa);
   }
 
   ordenarCards(ordem: Ordem) {
@@ -65,6 +67,7 @@ export class HomeComponent implements OnInit {
         this.atualizarCardsMostrados();
         break;
     }
+    console.log('Evento de ordenação recebido:', ordem);
   }
 
   filtrarPorTipoItem(tipoItem: string) {
@@ -75,6 +78,7 @@ export class HomeComponent implements OnInit {
     }
     this.pageIndex = 0;
     this.atualizarCardsMostrados();
+    console.log('Evento de filtro por tipo de item recebido:', tipoItem);
   }
 
 }
