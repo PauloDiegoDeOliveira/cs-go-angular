@@ -69,3 +69,15 @@ mat-card img {
         background-position: -200% 0;
     }
 }
+
+@media screen and (max-width: 750px) {
+    .card {
+
+        &:hover {
+            transform: unset;
+            transition: unset;
+            box-shadow: unset;
+            cursor: unset;
+        }
+    }
+}
