@@ -7,7 +7,6 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
-
   paginaLogin: boolean | undefined;
 
   constructor(private router: Router, private route: ActivatedRoute) {
