@@ -6,10 +6,8 @@
     gap: 20px;
 }
 
-::ng-deep {
-    mat-icon {
-        color: var(--blue);
-    }
+mat-icon {
+    color: var(--blue);
 }
 
 @media screen and (max-width: 750px) {
