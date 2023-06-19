@@ -18,7 +18,7 @@ export class CardComponent {
   ngOnInit() {
     setTimeout(() => {
       this.carregandoSkeleton = false;
-    }, 1000);
+    }, 1500);
   }
 
   openDialog() {
