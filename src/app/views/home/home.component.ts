@@ -45,13 +45,6 @@ export class HomeComponent implements OnInit {
     console.log('Atualizando cards mostrados');
   }
 
-  mudancaPagina(event: { pageIndex: number, pageSize: number }) {
-    this.pageIndex = event.pageIndex;
-    this.pageSize = event.pageSize;
-    this.atualizarCardsMostrados();
-    console.log('Evento de mudança de página recebido:', event);
-  }
-
   pesquisarCards(termoPesquisa: string) {
     this.cards = this.cards.filter(card => card.name.toLowerCase().includes(termoPesquisa.toLowerCase()));
     this.pageIndex = 0;
@@ -94,6 +87,13 @@ export class HomeComponent implements OnInit {
     this.pageIndex = 0;
     this.atualizarCardsMostrados();
     console.log('Evento de filtro por tipo de item recebido:', tipoItem);
+  }
+
+  mudancaPagina(event: { pageIndex: number, pageSize: number }) {
+    this.pageIndex = event.pageIndex;
+    this.pageSize = event.pageSize;
+    this.atualizarCardsMostrados();
+    console.log('Evento de mudança de página recebido:', event);
   }
 
 }
