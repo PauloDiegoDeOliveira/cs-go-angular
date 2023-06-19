@@ -11,6 +11,7 @@ import { Ordem } from 'src/app/shared/enum/ordem';
 export class HomeComponent implements OnInit {
   cards: Card[] = [];
   cardsMostrados: Card[] = [];
+  cardsFiltrados: Card[] = [];
   pageIndex: number = 0;
   pageSize: number = 10;
 
@@ -25,6 +26,7 @@ export class HomeComponent implements OnInit {
       next: (data: Card) => {
         if (Array.isArray(data)) {
           this.cards = data;
+          this.cardsFiltrados = this.cards;
           this.atualizarCardsMostrados();
         }
         else {
@@ -41,12 +43,12 @@ export class HomeComponent implements OnInit {
   atualizarCardsMostrados() {
     let inicioDaPagina = this.pageIndex * this.pageSize;
     let fimDaPagina = (this.pageIndex + 1) * this.pageSize;
-    this.cardsMostrados = this.cards.slice(inicioDaPagina, fimDaPagina);
+    this.cardsMostrados = this.cardsFiltrados.slice(inicioDaPagina, fimDaPagina);
     console.log('Atualizando cards mostrados');
   }
 
   pesquisarCards(termoPesquisa: string) {
-    this.cards = this.cards.filter(card => card.name.toLowerCase().includes(termoPesquisa.toLowerCase()));
+    this.cardsFiltrados = this.cards.filter(card => card.name.toLowerCase().includes(termoPesquisa.toLowerCase()));
     this.pageIndex = 0;
     this.atualizarCardsMostrados();
     console.log('Evento de pesquisa recebido:', termoPesquisa);
@@ -80,10 +82,11 @@ export class HomeComponent implements OnInit {
       return;
 
     if (tipoItem === 'todos') {
-      this.cards = this.cards;
+      this.cardsFiltrados = this.cards;
     } else {
-      this.cards = this.cards.filter(card => card.name.toLowerCase().includes(tipoItem.toLowerCase()));
+      this.cardsFiltrados = this.cards.filter(card => card.name.toLowerCase().includes(tipoItem.toLowerCase()));
     }
+
     this.pageIndex = 0;
     this.atualizarCardsMostrados();
     console.log('Evento de filtro por tipo de item recebido:', tipoItem);
