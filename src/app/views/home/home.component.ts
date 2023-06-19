@@ -39,7 +39,9 @@ export class HomeComponent implements OnInit {
   }
 
   atualizarCardsMostrados() {
-    this.cardsMostrados = this.cards.slice(this.pageIndex * this.pageSize, (this.pageIndex + 1) * this.pageSize);
+    let inicioDaPagina = this.pageIndex * this.pageSize;
+    let fimDaPagina = (this.pageIndex + 1) * this.pageSize;
+    this.cardsMostrados = this.cards.slice(inicioDaPagina, fimDaPagina);
     console.log('Atualizando cards mostrados');
   }
 
