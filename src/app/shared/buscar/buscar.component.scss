@@ -1,7 +1,15 @@
+@import '../../scss/_colors';
+
 .search {
     display: flex;
     flex-direction: row;
     gap: 20px;
+}
+
+::ng-deep {
+    mat-icon {
+        color: var(--blue);
+    }
 }
 
 @media screen and (max-width: 750px) {
