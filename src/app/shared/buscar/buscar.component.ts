@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { Ordem } from '../enum/ordem';
+import { Ordem } from '../../core/enum/ordem';
 
 @Component({
   selector: 'app-buscar',

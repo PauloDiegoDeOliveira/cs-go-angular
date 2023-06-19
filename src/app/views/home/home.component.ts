@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Card } from 'src/app/models/responses/card';
 import { CardService } from 'src/app/services/card.service';
-import { Ordem } from 'src/app/shared/enum/ordem';
+import { Ordem } from 'src/app/core/enum/ordem';
 
 @Component({
   selector: 'app-home',
