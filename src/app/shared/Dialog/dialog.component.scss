@@ -19,6 +19,11 @@
     }
 }
 
+.description-text {
+    font-size: 1.6rem;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
 @media screen and (max-width: 750px) {
     mat-dialog-content {
         height: 100%;
@@ -31,7 +36,3 @@
         }
     }
 }
-
-// .description-text {
-//     background-color: yellow;
-// }    
