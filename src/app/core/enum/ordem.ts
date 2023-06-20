@@ -4,4 +4,5 @@ export enum Ordem {
     Decrescente = 'decrescente',
     Novos = 'novos',
     Antigos = 'antigos',
+    Stattrak = 'stattrak'
 }

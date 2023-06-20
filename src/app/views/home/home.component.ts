@@ -56,6 +56,12 @@ export class HomeComponent implements OnInit {
 
   ordenarCards(ordem: Ordem) {
     switch (ordem) {
+      case Ordem.Padrao:
+        const indiceInicial = this.pageIndex * this.pageSize;
+        const indiceFinal = indiceInicial + this.pageSize;
+        this.cardsMostrados = [...this.cards.slice(indiceInicial, indiceFinal)];
+        break;
+
       case Ordem.Crescente:
         this.cardsMostrados = [...this.cardsMostrados.sort((a, b) => a.name.localeCompare(b.name))];
         break;
@@ -64,10 +70,10 @@ export class HomeComponent implements OnInit {
         this.cardsMostrados = [...this.cardsMostrados.sort((a, b) => b.name.localeCompare(a.name))];
         break;
 
-      case Ordem.Padrao:
-        const indiceInicial = this.pageIndex * this.pageSize;
-        const indiceFinal = indiceInicial + this.pageSize;
-        this.cardsMostrados = [...this.cards.slice(indiceInicial, indiceFinal)];
+      case Ordem.Stattrak:
+        this.cardsFiltrados = [...this.cards.filter(a => a.stattrak)];
+        this.pageIndex = 0;
+        this.atualizarCardsMostrados();
         break;
 
       default:

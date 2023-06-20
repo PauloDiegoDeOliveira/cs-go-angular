@@ -9,5 +9,5 @@ export interface Card {
     rarity: string;
     stattrak: boolean;
     paint_index: string;
-    image: string;   
+    image: string;
 }
