@@ -110,6 +110,12 @@ export class HomeComponent implements OnInit {
     this.pageIndex = 0;
     this.atualizarCardsMostrados();
     console.log('Filtros limpos');
+
+    const pesquisarInput = document.getElementById('pesquisarInput') as HTMLInputElement;
+    if (pesquisarInput) {
+      pesquisarInput.value = '';
+      console.log('Limpo o valor do input');
+    }
   }
 
 }
