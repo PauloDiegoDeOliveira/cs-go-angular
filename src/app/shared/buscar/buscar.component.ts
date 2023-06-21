@@ -15,31 +15,29 @@ export class BuscarComponent {
 
   formulario: FormGroup = new FormGroup({});
 
-  constructor(private formBuilder: FormBuilder) { }
-
-  ngOnInit() {
+  constructor(private formBuilder: FormBuilder) {
     this.formulario = this.formBuilder.group({
-      todosItens: null,
+      todosItens: [null],
       pesquisar: [''],
-      ordenarPor: null,
+      ordenarPor: [null],
     });
   }
 
-  pesquisarCards(event: Event) {
-    const input = event.target as HTMLInputElement;
-    console.log('Emitindo evento com valor:', input.value);
-    this.termoPesquisa.emit(input.value);
-  }
+  ngOnInit() {
+    this.formulario.get('todosItens')!.valueChanges.subscribe((valor: string) => {
+      console.log('Emitindo evento de tipo de item selecionado com valor:', valor);
+      this.tipoItemSelecionado.emit(valor);
+    });
 
-  ordenarCards(event: any) {
-    const valorOrdenacao = event.value as Ordem;
-    console.log('Emitindo evento de ordenação com valor:', valorOrdenacao);
-    this.ordenarPor.emit(valorOrdenacao);
-  }
+    this.formulario.get('pesquisar')!.valueChanges.subscribe((valor: string) => {
+      console.log('Emitindo evento com valor:', valor);
+      this.termoPesquisa.emit(valor);
+    });
 
-  filtrarPorTipoItem(event: any) {
-    console.log('Emitindo evento de tipo de item selecionado com valor:', event.value);
-    this.tipoItemSelecionado.emit(event.value);
+    this.formulario.get('ordenarPor')!.valueChanges.subscribe((valor: Ordem) => {
+      console.log('Emitindo evento de ordenação com valor:', valor);
+      this.ordenarPor.emit(valor);
+    });
   }
 
   limparInput() {
@@ -49,11 +47,6 @@ export class BuscarComponent {
       ordenarPor: null,
     })
     console.log('Inputs limpo');
+    this.limparFiltros.emit();
   }
 }
-
-
-
-
-
-

@@ -2,7 +2,7 @@
     <div class="search">
         <mat-form-field appearance="outline">
             <mat-label>Todos os itens</mat-label>
-            <mat-select formControlName="todosItens" (selectionChange)="filtrarPorTipoItem($event)">
+            <mat-select formControlName="todosItens">
                 <mat-option value="todos">Todos</mat-option>
                 <mat-option value="faca">Faca</mat-option>
                 <mat-option value="luva">Luva</mat-option>
@@ -11,13 +11,13 @@
 
         <mat-form-field appearance="outline">
             <mat-label>Pesquisar</mat-label>
-            <input matInput formControlName="pesquisar" placeholder="Ex: Faca" (input)="pesquisarCards($event)">
+            <input matInput formControlName="pesquisar" placeholder="Ex: Faca">
             <mat-icon matSuffix>search</mat-icon>
         </mat-form-field>
 
         <mat-form-field appearance="outline">
             <mat-label>Ordenar por</mat-label>
-            <mat-select formControlName="ordenarPor" (selectionChange)="ordenarCards($event)">
+            <mat-select formControlName="ordenarPor">
                 <mat-option value="padrao">Padrão</mat-option>
                 <mat-option value="crescente">Crescente</mat-option>
                 <mat-option value="decrescente">Decrescente</mat-option>
@@ -26,7 +26,7 @@
         </mat-form-field>
 
         <div class="limpar-filtro">
-            <button mat-raised-button color="primary" (click)="limparInput()" (click)="limparFiltros.emit()">Limpar
+            <button mat-raised-button color="primary" (click)="limparInput()">Limpar
                 Filtros</button>
         </div>
     </div>
