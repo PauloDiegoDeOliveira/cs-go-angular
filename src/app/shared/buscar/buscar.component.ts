@@ -10,8 +10,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class BuscarComponent implements OnInit, OnDestroy {
   @Output() termoPesquisa = new EventEmitter<string>();
   @Output() ordenarPor = new EventEmitter<Ordem>();
-  @Output() tipoItemSelecionado = new EventEmitter<string | null>();
-  // @Output() tipoItemSelecionado = new EventEmitter<{ todosItens: string; pesquisar: string; ordenarPor: string; }>();
+  @Output() filtros = new EventEmitter<{ todosItens: string; pesquisar: string; ordenarPor: string; }>();
 
   formulario: FormGroup = new FormGroup({});
 
@@ -24,29 +23,9 @@ export class BuscarComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    // this.formulario.valueChanges.subscribe((valor: string) => {
-    //   console.log('Emitindo evento de tipo de item selecionado com valor:', valor);
-    //   this.tipoItemSelecionado.emit(valor);
-    // });
-
-    // this.formulario.valueChanges.subscribe((valor: { todosItens: string, pesquisar: string, ordenarPor: string }) => {
-    //   console.log('Emitindo evento de tipo de item selecionado com valor:', valor);
-    //   this.tipoItemSelecionado.emit(valor);
-    // });
-
-    this.formulario.get('todosItens')!.valueChanges.subscribe((valor: string) => {
+    this.formulario.valueChanges.subscribe((valor: { todosItens: string, pesquisar: string, ordenarPor: string }) => {
       console.log('Emitindo evento de tipo de item selecionado com valor:', valor);
-      this.tipoItemSelecionado.emit(valor);
-    });
-
-    this.formulario.get('pesquisar')!.valueChanges.subscribe((valor: string) => {
-      console.log('Emitindo evento com valor:', valor);
-      this.termoPesquisa.emit(valor);
-    });
-
-    this.formulario.get('ordenarPor')!.valueChanges.subscribe((valor: Ordem) => {
-      console.log('Emitindo evento de ordenação com valor:', valor);
-      this.ordenarPor.emit(valor);
+      this.filtros.emit(valor);
     });
   }
 

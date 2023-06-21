@@ -47,12 +47,12 @@ export class HomeComponent implements OnInit {
     console.log('Atualizando cards mostrados');
   }
 
-  pesquisarCards(termoPesquisa: string) {
-    this.cardsFiltrados = this.cards.filter(card => card.name.toLowerCase().includes(termoPesquisa.toLowerCase()));
-    this.pageIndex = 0;
-    this.atualizarCardsMostrados();
-    console.log('Evento de pesquisa recebido:', termoPesquisa);
-  }
+  // pesquisarCards(termoPesquisa: string) {
+  //   this.cardsFiltrados = this.cards.filter(card => card.name.toLowerCase().includes(termoPesquisa.toLowerCase()));
+  //   this.pageIndex = 0;
+  //   this.atualizarCardsMostrados();
+  //   console.log('Evento de pesquisa recebido:', termoPesquisa);
+  // }
 
   ordenarCards(ordem: Ordem) {
     switch (ordem) {
@@ -83,35 +83,17 @@ export class HomeComponent implements OnInit {
     console.log('Evento de ordenação recebido:', ordem);
   }
 
-  filtrarPorTipoItem(tipoItem: string | null) {
-    if (!tipoItem)
-      return;
-
-    if (tipoItem === 'todos') {
+  filtros(tipoItem: { todosItens: string, pesquisar: string, ordenarPor: string }) {
+    if (tipoItem.todosItens === 'todos') {
       this.cardsFiltrados = this.cards;
     } else {
-      this.cardsFiltrados = this.cards.filter(card => card.name.toLowerCase().includes(tipoItem.toLowerCase()));
+      this.cardsFiltrados = this.cards.filter(card => card.name.toLowerCase().includes(tipoItem.pesquisar.toLowerCase()));
     }
 
     this.pageIndex = 0;
     this.atualizarCardsMostrados();
     console.log('Evento de filtro por tipo de item recebido:', tipoItem);
   }
-
-  // filtrarPorTipoItem(tipoItem: { todosItens: string, pesquisar: string, ordenarPor: string }) {
-  //   if (!tipoItem.todosItens)
-  //     return;
-
-  //   if (tipoItem.todosItens === 'todos') {
-  //     this.cardsFiltrados = this.cards;
-  //   } else {
-  //     this.cardsFiltrados = this.cards.filter(card => card.name.toLowerCase().includes(tipoItem.todosItens.toLowerCase()));
-  //   }
-
-  //   this.pageIndex = 0;
-  //   this.atualizarCardsMostrados();
-  //   console.log('Evento de filtro por tipo de item recebido:', tipoItem);
-  // }
 
   mudancaPagina(event: { pageIndex: number, pageSize: number }) {
     this.pageIndex = event.pageIndex;
