@@ -1,30 +1,33 @@
-<div class="search">
-    <mat-form-field appearance="outline">
-        <mat-label>Todos os itens</mat-label>
-        <mat-select (selectionChange)="filtrarPorTipoItem($event)">
-            <mat-option value="todos">Todos</mat-option>
-            <mat-option value="faca">Faca</mat-option>
-            <mat-option value="luva">Luva</mat-option>
-        </mat-select>
-    </mat-form-field>
+<form [formGroup]="formulario">
+    <div class="search">
+        <mat-form-field appearance="outline">
+            <mat-label>Todos os itens</mat-label>
+            <mat-select formControlName="todosItens" (selectionChange)="filtrarPorTipoItem($event)">
+                <mat-option value="todos">Todos</mat-option>
+                <mat-option value="faca">Faca</mat-option>
+                <mat-option value="luva">Luva</mat-option>
+            </mat-select>
+        </mat-form-field>
 
-    <mat-form-field appearance="outline">
-        <mat-label>Pesquisar</mat-label>
-        <input matInput id="pesquisarInput" #pesquisarInputRef placeholder="Ex: Faca" (input)="pesquisarCards($event)">
-        <mat-icon matSuffix>search</mat-icon>
-    </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Pesquisar</mat-label>
+            <input matInput formControlName="pesquisar" placeholder="Ex: Faca" (input)="pesquisarCards($event)">
+            <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
 
-    <mat-form-field appearance="outline">
-        <mat-label>Ordenar por</mat-label>
-        <mat-select (selectionChange)="ordenarCards($event)">
-            <mat-option value="padrao">Padrão</mat-option>
-            <mat-option value="crescente">Crescente</mat-option>
-            <mat-option value="decrescente">Decrescente</mat-option>
-            <mat-option value="stattrak">Stattrak</mat-option>
-        </mat-select>
-    </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Ordenar por</mat-label>
+            <mat-select formControlName="ordenarPor" (selectionChange)="ordenarCards($event)">
+                <mat-option value="padrao">Padrão</mat-option>
+                <mat-option value="crescente">Crescente</mat-option>
+                <mat-option value="decrescente">Decrescente</mat-option>
+                <mat-option value="stattrak">Stattrak</mat-option>
+            </mat-select>
+        </mat-form-field>
 
-    <div class="limpar-filtro">
-        <button mat-raised-button color="primary" (click)="limparFiltros.emit()">Limpar Filtros</button>
+        <div class="limpar-filtro">
+            <button mat-raised-button color="primary" (click)="limparInput()" (click)="limparFiltros.emit()">Limpar
+                Filtros</button>
+        </div>
     </div>
-</div>
+</form>

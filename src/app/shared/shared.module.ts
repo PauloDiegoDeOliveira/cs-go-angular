@@ -18,6 +18,7 @@ import { MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginato
 import { CustomPaginatorIntl } from './custom-paginator-intl/custom-paginator-intl.service';
 import { DialogComponent } from './Dialog/dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatCardModule,
     HttpClientModule,
     MatPaginatorModule,
-    MatDialogModule
+    MatDialogModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [
     { provide: MatPaginatorIntl, useClass: CustomPaginatorIntl }
