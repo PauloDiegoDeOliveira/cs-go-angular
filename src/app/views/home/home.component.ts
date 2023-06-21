@@ -114,9 +114,11 @@ export class HomeComponent implements OnInit {
     const pesquisarInput = document.getElementById('pesquisarInput') as HTMLInputElement;
     if (pesquisarInput) {
       pesquisarInput.value = '';
-      console.log('Limpo o valor do input');
+      console.log('Limpo o valor do input pesquisar');
     }
   }
 
 }
+
+
 
