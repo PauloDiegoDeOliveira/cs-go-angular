@@ -11,6 +11,7 @@ export class BuscarComponent implements OnInit, OnDestroy {
   @Output() termoPesquisa = new EventEmitter<string>();
   @Output() ordenarPor = new EventEmitter<Ordem>();
   @Output() tipoItemSelecionado = new EventEmitter<string | null>();
+  // @Output() tipoItemSelecionado = new EventEmitter<{ todosItens: string; pesquisar: string; ordenarPor: string; }>();
 
   formulario: FormGroup = new FormGroup({});
 
@@ -24,6 +25,11 @@ export class BuscarComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     // this.formulario.valueChanges.subscribe((valor: string) => {
+    //   console.log('Emitindo evento de tipo de item selecionado com valor:', valor);
+    //   this.tipoItemSelecionado.emit(valor);
+    // });
+
+    // this.formulario.valueChanges.subscribe((valor: { todosItens: string, pesquisar: string, ordenarPor: string }) => {
     //   console.log('Emitindo evento de tipo de item selecionado com valor:', valor);
     //   this.tipoItemSelecionado.emit(valor);
     // });

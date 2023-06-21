@@ -98,6 +98,21 @@ export class HomeComponent implements OnInit {
     console.log('Evento de filtro por tipo de item recebido:', tipoItem);
   }
 
+  // filtrarPorTipoItem(tipoItem: { todosItens: string, pesquisar: string, ordenarPor: string }) {
+  //   if (!tipoItem.todosItens)
+  //     return;
+
+  //   if (tipoItem.todosItens === 'todos') {
+  //     this.cardsFiltrados = this.cards;
+  //   } else {
+  //     this.cardsFiltrados = this.cards.filter(card => card.name.toLowerCase().includes(tipoItem.todosItens.toLowerCase()));
+  //   }
+
+  //   this.pageIndex = 0;
+  //   this.atualizarCardsMostrados();
+  //   console.log('Evento de filtro por tipo de item recebido:', tipoItem);
+  // }
+
   mudancaPagina(event: { pageIndex: number, pageSize: number }) {
     this.pageIndex = event.pageIndex;
     this.pageSize = event.pageSize;
