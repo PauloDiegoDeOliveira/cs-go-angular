@@ -10,6 +10,7 @@ export class BuscarComponent {
   @Output() termoPesquisa = new EventEmitter<string>();
   @Output() ordenarPor = new EventEmitter<Ordem>();
   @Output() tipoItemSelecionado = new EventEmitter<string | null>();
+  @Output() limparFiltros = new EventEmitter<void>();
 
   pesquisarCards(event: Event) {
     const input = event.target as HTMLInputElement;
