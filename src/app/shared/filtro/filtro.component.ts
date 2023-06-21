@@ -4,8 +4,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-buscar',
-  templateUrl: './buscar.component.html',
-  styleUrls: ['./buscar.component.scss']
+  templateUrl: './filtro.component.html',
+  styleUrls: ['./filtro.component.scss']
 })
 export class BuscarComponent implements OnInit, OnDestroy {
   @Output() termoPesquisa = new EventEmitter<string>();
