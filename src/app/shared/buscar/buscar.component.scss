@@ -10,6 +10,13 @@ mat-icon {
     color: var(--blue);
 }
 
+.center-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
 @media screen and (max-width: 750px) {
     .search {
         flex-direction: column;
