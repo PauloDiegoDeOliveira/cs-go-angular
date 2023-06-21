@@ -48,6 +48,7 @@ export class BuscarComponent {
       pesquisar: '',
       ordenarPor: null,
     })
+    console.log('Inputs limpo');
   }
 }
 
