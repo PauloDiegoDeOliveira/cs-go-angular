@@ -81,6 +81,9 @@ export class HomeComponent implements OnInit {
         break;
 
       case Ordem.Crescente:
+        this.cardsMostrados = [...this.cardsMostrados.sort((a, b) => a.name.localeCompare(b.name))];
+        break;
+
       case Ordem.Decrescente:
         this.cardsMostrados = [...this.cardsMostrados.sort((a, b) => b.name.localeCompare(a.name))];
         break;
