@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Card } from 'src/app/models/responses/card';
 import { CardService } from 'src/app/services/card.service';
 import { Ordem } from 'src/app/core/enum/ordem';
+import { Item } from 'src/app/core/enum/item';
 
 @Component({
   selector: 'app-home',
@@ -44,18 +45,34 @@ export class HomeComponent implements OnInit {
     let inicioDaPagina = this.pageIndex * this.pageSize;
     let fimDaPagina = (this.pageIndex + 1) * this.pageSize;
     this.cardsMostrados = this.cardsFiltrados.slice(inicioDaPagina, fimDaPagina);
-    console.log('Atualizando cards mostrados');
+    console.log('Atualizando cards mostrados', this.cardsMostrados);
   }
 
-  // pesquisarCards(termoPesquisa: string) {
-  //   this.cardsFiltrados = this.cards.filter(card => card.name.toLowerCase().includes(termoPesquisa.toLowerCase()));
-  //   this.pageIndex = 0;
-  //   this.atualizarCardsMostrados();
-  //   console.log('Evento de pesquisa recebido:', termoPesquisa);
-  // }
+  filtros(filtros: { todosItens: string, pesquisar: string, ordenarPor: string }) {
+    switch (filtros.todosItens) {
+      case Item.Todos:
+        this.cardsFiltrados = this.cards;
+        break;
 
-  ordenarCards(ordem: Ordem) {
-    switch (ordem) {
+      case Item.Faca:
+        this.cardsFiltrados = this.cards.filter(card => card.name.toLowerCase().includes(Item.Faca));
+        break;
+
+      case Item.Luva:
+        this.cardsFiltrados = this.cards.filter(card => card.name.toLowerCase().includes(Item.Luva));
+        break;
+
+      default:
+        this.cardsFiltrados = this.cards;
+        break;
+    }
+
+    if (filtros.pesquisar) {
+      this.cardsFiltrados = this.cardsFiltrados.filter(card => card.name.toLowerCase().includes(filtros.pesquisar.toLowerCase()));
+      console.log('Evento de filtro por tipo de item recebido:', filtros);
+    }
+
+    switch (filtros.ordenarPor) {
       case Ordem.Padrao:
         const indiceInicial = this.pageIndex * this.pageSize;
         const indiceFinal = indiceInicial + this.pageSize;
@@ -71,7 +88,7 @@ export class HomeComponent implements OnInit {
         break;
 
       case Ordem.Stattrak:
-        this.cardsFiltrados = [...this.cards.filter(a => a.stattrak)];
+        this.cardsFiltrados = [...this.cardsFiltrados.filter(a => a.stattrak)];
         this.pageIndex = 0;
         this.atualizarCardsMostrados();
         break;
@@ -80,19 +97,8 @@ export class HomeComponent implements OnInit {
         this.atualizarCardsMostrados();
         break;
     }
-    console.log('Evento de ordenação recebido:', ordem);
-  }
-
-  filtros(tipoItem: { todosItens: string, pesquisar: string, ordenarPor: string }) {
-    if (tipoItem.todosItens === 'todos') {
-      this.cardsFiltrados = this.cards;
-    } else {
-      this.cardsFiltrados = this.cards.filter(card => card.name.toLowerCase().includes(tipoItem.pesquisar.toLowerCase()));
-    }
-
-    this.pageIndex = 0;
-    this.atualizarCardsMostrados();
-    console.log('Evento de filtro por tipo de item recebido:', tipoItem);
+    console.log('Evento de filtro por tipo de item recebido:', filtros);
+    console.log('Retorno da API', this.cards);
   }
 
   mudancaPagina(event: { pageIndex: number, pageSize: number }) {

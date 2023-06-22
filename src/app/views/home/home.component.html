@@ -1,12 +1,11 @@
 <app-banner></app-banner>
 
 <div class="buscar">
-    <app-buscar (filtros)="filtros($event)">
-    </app-buscar>
+    <app-buscar (filtros)="filtros($event)"> </app-buscar>
 </div>
 
 <div class="card">
-    <app-card *ngFor="let card of cardsMostrados" [card]="card"></app-card>
+    <app-card *ngFor="let card of cardsMostrados" [card]="card"> </app-card>
 </div>
 
 <div class="paginacao">

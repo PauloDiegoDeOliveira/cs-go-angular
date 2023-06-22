@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BannerComponent } from './banner/banner.component';
-import { BuscarComponent } from './filtro/filtro.component';
+import { FiltroComponent } from './filtro/filtro.component';
 import { CardComponent } from './card/card.component';
 import { LogoComponent } from './logo/logo.component';
 import { TituloComponent } from './titulo/titulo.component';
@@ -23,7 +23,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     BannerComponent,
-    BuscarComponent,
+    FiltroComponent,
     CardComponent,
     LogoComponent,
     TituloComponent,
@@ -50,7 +50,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   ],
   exports: [
     BannerComponent,
-    BuscarComponent,
+    FiltroComponent,
     CardComponent,
     LogoComponent,
     TituloComponent,
