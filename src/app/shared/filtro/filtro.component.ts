@@ -1,38 +1,40 @@
 import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Subscription } from 'rxjs';
 import { Filtros } from 'src/app/models/filtros';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { debounceTime } from 'rxjs';
 
 @Component({
   selector: 'app-buscar',
   templateUrl: './filtro.component.html',
   styleUrls: ['./filtro.component.scss']
 })
-export class FiltroComponent implements OnInit, OnDestroy {
+export class FiltroComponent implements OnInit {
   @Output() filtros = new EventEmitter<Filtros>();
 
   formulario: FormGroup = new FormGroup({});
-  private subscricaoFormulario?: Subscription;
 
   constructor(private formBuilder: FormBuilder) {
+    this.formularioInicial();
+  }
+
+  ngOnInit() {
+  }
+
+  formularioInicial() {
     this.formulario = this.formBuilder.group({
       todosItens: [null],
       pesquisar: ['', Validators.required],
       ordenarPor: [null],
     });
-  }
 
-  ngOnInit() {
-    this.subscricaoFormulario = this.formulario.valueChanges.subscribe((filtros: Filtros) => {
-      console.log('Emitindo evento de tipo de item selecionado com valor:', filtros);
-      this.filtros.emit(filtros);
-    });
-  }
-
-  ngOnDestroy(): void {
-    if (this.subscricaoFormulario) {
-      this.subscricaoFormulario.unsubscribe();
-    }
+    this.formulario.valueChanges
+      .pipe(takeUntilDestroyed(),
+        debounceTime(500))
+      .subscribe((filtros: Filtros) => {
+        console.log('Emitindo evento de tipo de item selecionado com valor:', filtros);
+        this.filtros.emit(filtros);
+      });
   }
 
   limparInput() {
