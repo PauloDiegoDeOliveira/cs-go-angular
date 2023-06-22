@@ -3,6 +3,7 @@ import { Card } from 'src/app/models/responses/card';
 import { CardService } from 'src/app/services/card.service';
 import { Ordem } from 'src/app/core/enum/ordem';
 import { Item } from 'src/app/core/enum/item';
+import { Filtros } from 'src/app/models/filtros';
 
 @Component({
   selector: 'app-home',
@@ -48,7 +49,7 @@ export class HomeComponent implements OnInit {
     console.log('Atualizando cards mostrados', this.cardsMostrados);
   }
 
-  filtros(filtros: { todosItens: string, pesquisar: string, ordenarPor: string }) {
+  filtros(filtros: Filtros) {
     switch (filtros.todosItens) {
       case Item.Todos:
         this.cardsFiltrados = this.cards;
