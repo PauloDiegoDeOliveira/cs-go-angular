@@ -56,11 +56,11 @@ export class HomeComponent implements OnInit {
         break;
 
       case Item.Faca:
-        this.cardsFiltrados = this.cards.filter(card => card.name.toLowerCase().includes(Item.Faca));
+        this.cardsFiltrados = this.cards.filter(card => card.name.toLowerCase().includes(Item.Faca.toLowerCase()));
         break;
 
       case Item.Luva:
-        this.cardsFiltrados = this.cards.filter(card => card.name.toLowerCase().includes(Item.Luva));
+        this.cardsFiltrados = this.cards.filter(card => card.name.toLowerCase().includes(Item.Luva.toLowerCase()));
         break;
 
       default:
@@ -81,9 +81,6 @@ export class HomeComponent implements OnInit {
         break;
 
       case Ordem.Crescente:
-        this.cardsMostrados = [...this.cardsMostrados.sort((a, b) => a.name.localeCompare(b.name))];
-        break;
-
       case Ordem.Decrescente:
         this.cardsMostrados = [...this.cardsMostrados.sort((a, b) => b.name.localeCompare(a.name))];
         break;
