@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
+import { Filtros } from 'src/app/models/filtros';
 
 @Component({
   selector: 'app-buscar',
@@ -8,7 +9,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./filtro.component.scss']
 })
 export class FiltroComponent implements OnInit, OnDestroy {
-  @Output() filtros = new EventEmitter<{ todosItens: string; pesquisar: string; ordenarPor: string; }>();
+  @Output() filtros = new EventEmitter<Filtros>();
 
   formulario: FormGroup = new FormGroup({});
   private subscricaoFormulario?: Subscription;
@@ -22,9 +23,9 @@ export class FiltroComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.subscricaoFormulario = this.formulario.valueChanges.subscribe((valor: { todosItens: string, pesquisar: string, ordenarPor: string }) => {
-      console.log('Emitindo evento de tipo de item selecionado com valor:', valor);
-      this.filtros.emit(valor);
+    this.subscricaoFormulario = this.formulario.valueChanges.subscribe((filtros: Filtros) => {
+      console.log('Emitindo evento de tipo de item selecionado com valor:', filtros);
+      this.filtros.emit(filtros);
     });
   }
 
