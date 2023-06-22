@@ -4,6 +4,8 @@ import { CardService } from 'src/app/services/card.service';
 import { Ordem } from 'src/app/core/enum/ordem';
 import { Item } from 'src/app/core/enum/item';
 import { Filtros } from 'src/app/models/filtros';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { debounceTime } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -17,28 +19,32 @@ export class HomeComponent implements OnInit {
   pageIndex: number = 0;
   pageSize: number = 10;
 
-  constructor(private cardService: CardService) { }
-
-  ngOnInit() {
+  constructor(private cardService: CardService) {
     this.obterTodosCards();
   }
 
+  ngOnInit() {
+  }
+
   obterTodosCards() {
-    this.cardService.obterTodosCards<Card>('skins.json').subscribe({
-      next: (data: Card) => {
-        if (Array.isArray(data)) {
-          this.cards = data;
-          this.cardsFiltrados = this.cards;
-          this.atualizarCardsMostrados();
+    this.cardService.obterTodosCards<Card>('skins.json')
+      .pipe(takeUntilDestroyed(),
+        debounceTime(500))
+      .subscribe({
+        next: (data: Card) => {
+          if (Array.isArray(data)) {
+            this.cards = data;
+            this.cardsFiltrados = this.cards;
+            this.atualizarCardsMostrados();
+          }
+          else {
+            console.error('Não foi possível obter os dados.');
+          }
+        },
+        error: (error) => {
+          console.error(error);
         }
-        else {
-          console.error('Não foi possível obter os dados.');
-        }
-      },
-      error: (error) => {
-        console.error(error);
-      }
-    });
+      });
     console.log('Buscando todos os cards');
   }
 
