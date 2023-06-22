@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -16,7 +16,7 @@ export class FiltroComponent implements OnInit, OnDestroy {
   constructor(private formBuilder: FormBuilder) {
     this.formulario = this.formBuilder.group({
       todosItens: [null],
-      pesquisar: [''],
+      pesquisar: ['', Validators.required],
       ordenarPor: [null],
     });
   }
