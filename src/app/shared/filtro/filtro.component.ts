@@ -19,6 +19,11 @@ export class FiltroComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.teste();
+  }
+
+  teste() {
+    console.log('--- Teste ---');
   }
 
   formularioInicial() {
