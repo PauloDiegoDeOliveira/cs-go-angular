@@ -19,6 +19,8 @@ import { CustomPaginatorIntl } from './custom-paginator-intl/custom-paginator-in
 import { DialogComponent } from './Dialog/dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DialogCrudComponent } from './dialog-crud/dialog-crud.component';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     TituloComponent,
     MensagemComponent,
     PaginacaoComponent,
-    DialogComponent
+    DialogComponent,
+    DialogCrudComponent,
   ],
   imports: [
     CommonModule,
@@ -55,7 +58,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     LogoComponent,
     TituloComponent,
     PaginacaoComponent,
-    DialogComponent
+    DialogComponent,
+    DialogCrudComponent
   ],
 })
 export class SharedModule { }

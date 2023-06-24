@@ -8,13 +8,13 @@ import { HomeRoutingModule } from './home.routing.module';
   declarations: [
     HomeComponent
   ],
+  exports: [
+    HomeComponent
+  ],
   imports: [
     CommonModule,
     SharedModule,
     HomeRoutingModule,
-  ],
-  exports: [
-    HomeComponent
   ]
 })
 export class HomeModule { }

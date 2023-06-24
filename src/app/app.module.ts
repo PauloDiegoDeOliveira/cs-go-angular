@@ -5,17 +5,19 @@ import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
 import { LoginModule } from './views/login/login.module';
+import { CrudModule } from './views/crud/crud.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NoopAnimationsModule,
     CoreModule,
-    LoginModule
+    LoginModule,
+    CrudModule
   ],
   providers: [],
   bootstrap: [AppComponent]

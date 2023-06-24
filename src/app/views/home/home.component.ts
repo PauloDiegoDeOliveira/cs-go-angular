@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Card } from 'src/app/models/responses/card';
-import { CardService } from 'src/app/services/card.service';
+import { CardService } from 'src/app/services/card/card.service';
 import { Ordem } from 'src/app/core/enum/ordem';
 import { Item } from 'src/app/core/enum/item';
 import { Filtros } from 'src/app/models/filtros';
