@@ -15,17 +15,17 @@ export class CrudComponent implements OnInit {
   @ViewChild(MatTable)
 
   table!: MatTable<any>;
-  displayedColumns: string[] = ['id_Categoria', 'nome_Categoria', 'descricao_Categoria', 'status_Categoria', 'actions'];
-  dataSource!: Categoria[];
+  exibirColunas: string[] = ['id_Categoria', 'nome_Categoria', 'descricao_Categoria', 'status_Categoria', 'actions'];
+  categoria!: Categoria[];
   status = Status;
 
   constructor(
     public dialog: MatDialog,
     public categoriaElementService: CategoriaService) {
     this.categoriaElementService.getElements()
-      .subscribe((data: Categoria[]) => {
-        console.log(data);
-        this.dataSource = data;
+      .subscribe((categoria: Categoria[]) => {
+        console.log('Categorias: ', categoria);
+        this.categoria = categoria;
       });
   }
 
@@ -50,17 +50,17 @@ export class CrudComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result !== undefined) {
         console.log(result);
-        if (this.dataSource.map(p => p.id_Categoria).includes(result.id_Categoria)) {
+        if (this.categoria.map(p => p.id_Categoria).includes(result.id_Categoria)) {
           this.categoriaElementService.editElement(result)
             .subscribe((data: Categoria) => {
-              const index = this.dataSource.findIndex(p => p.id_Categoria === data.id_Categoria);
-              this.dataSource[index] = data;
+              const index = this.categoria.findIndex(p => p.id_Categoria === data.id_Categoria);
+              this.categoria[index] = data;
               this.table.renderRows();
             });
         } else {
           this.categoriaElementService.createElements(result)
             .subscribe((data: Categoria) => {
-              this.dataSource.push(data);
+              this.categoria.push(data);
               this.table.renderRows();
             });
         }
@@ -70,13 +70,15 @@ export class CrudComponent implements OnInit {
 
   editElement(element: Categoria): void {
     this.openDialog(element);
+    console.log('Editar categoria: ', element);
   }
 
   deleteElement(position: number): void {
     this.categoriaElementService.deleteElement(position)
       .subscribe(() => {
-        this.dataSource = this.dataSource.filter(p => p.id_Categoria !== position);
+        this.categoria = this.categoria.filter(p => p.id_Categoria !== position);
       });
+    console.log('Deletar categoria: ', position);
   }
 
 }
