@@ -4,11 +4,15 @@
     <app-buscar (filtros)="filtros($event)"> </app-buscar>
 </div>
 
+<div *ngIf="cardsMostrados.length === 0" class="no-results">
+    Nenhum item encontrado.
+</div>
+
 <div class="card">
     <app-card *ngFor="let card of cardsMostrados" [card]="card"> </app-card>
 </div>
 
-<div class="paginacao">
+<div *ngIf="cardsMostrados.length > 0" class="paginacao">
     <app-paginacao [pageIndex]="pageIndex" [pageSize]="pageSize" [length]="cardsFiltrados.length"
         (pageChange)="mudancaPagina($event)">
     </app-paginacao>
