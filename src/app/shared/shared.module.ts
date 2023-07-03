@@ -11,7 +11,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { MensagemComponent } from './mensagem/mensagem.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PaginacaoComponent } from './paginacao/paginacao.component';
 import { MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginator';
@@ -29,7 +28,6 @@ import { DialogCrudComponent } from './dialog-crud/dialog-crud.component';
     CardComponent,
     LogoComponent,
     TituloComponent,
-    MensagemComponent,
     PaginacaoComponent,
     DialogComponent,
     DialogCrudComponent,
