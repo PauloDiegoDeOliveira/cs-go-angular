@@ -14,6 +14,7 @@ export class DialogCrudComponent implements OnInit {
 
   constructor(
     @Inject(MAT_DIALOG_DATA)
+    
     public data: Categoria,
     public dialogRef: MatDialogRef<DialogCrudComponent>,
   ) { }

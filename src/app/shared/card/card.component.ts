@@ -11,6 +11,7 @@ import { MatDialog } from '@angular/material/dialog';
 
 export class CardComponent {
   @Input() card: Card | undefined;
+  
   carregandoSkeleton: boolean = true;
 
   constructor(private dialog: MatDialog) { }
