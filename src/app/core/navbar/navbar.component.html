@@ -2,10 +2,11 @@
   <div class="toolbar__logo">
     <app-logo></app-logo>
   </div>
-  <div *ngIf="true" class="toolbar__menu">
-    <button mat-icon-button aria-label="icon-button with menu icon">
+  
+  <div *ngIf="!paginaLogin" class="toolbar__menu">
+    <button mat-icon-button aria-label="icon-button with menu icon" (click)="toggleSidenav()">
       <mat-icon> {{ opened ? 'close' : 'menu' }} </mat-icon>
-    </button>
+    </button>    
   </div>
 </mat-toolbar>
 
