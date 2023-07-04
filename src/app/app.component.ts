@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'cs-go-angular';
+  events: string[] = [];
+  opened: boolean = false;
 }

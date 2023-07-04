@@ -2,19 +2,10 @@
   <div class="toolbar__logo">
     <app-logo></app-logo>
   </div>
-  <div *ngIf="!paginaLogin" class="toolbar__menu">
-    <button mat-icon-button aria-label="icon-button with menu icon" (click)="sidenav.toggle()">
+  <div *ngIf="true" class="toolbar__menu">
+    <button mat-icon-button aria-label="icon-button with menu icon">
       <mat-icon> {{ opened ? 'close' : 'menu' }} </mat-icon>
     </button>
   </div>
 </mat-toolbar>
 
-<mat-sidenav-container>
-  <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')"
-    (closed)="events.push('close!')">
-    Crud
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <router-outlet></router-outlet>
-  </mat-sidenav-content>
-</mat-sidenav-container>

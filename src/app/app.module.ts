@@ -6,6 +6,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
 import { LoginModule } from './views/login/login.module';
 import { CrudModule } from './views/crud/crud.module';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { CrudModule } from './views/crud/crud.module';
     NoopAnimationsModule,
     CoreModule,
     LoginModule,
-    CrudModule
+    CrudModule,
+    MatSidenavModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

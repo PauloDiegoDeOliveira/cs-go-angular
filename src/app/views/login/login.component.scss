@@ -3,10 +3,11 @@
 }
 
 .center-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    width: 100%;
+    height: calc(100vh - 199px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .full-width {
@@ -22,9 +23,8 @@
     background-color: #3F51B5;
 }
 
-::ng-deep{
+::ng-deep {
     .mat-mdc-tab-body-content {
         overflow: hidden !important;
     }
 }
-

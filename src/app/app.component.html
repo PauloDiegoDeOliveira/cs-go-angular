@@ -1,3 +1,14 @@
 <app-navbar></app-navbar>
-<router-outlet></router-outlet>
+
+
+<mat-sidenav-container>
+    <mat-sidenav #sidenav mode="over" [(opened)]="opened" (opened)="events.push('open!')">
+        Crud
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>        
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
 <app-footer></app-footer>
