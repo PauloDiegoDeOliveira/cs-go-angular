@@ -8,6 +8,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class NavbarComponent {
   paginaLogin: boolean | undefined;
+  events: string[] = [];
+  opened: boolean = false;
 
   constructor(private router: Router, private route: ActivatedRoute) {
     this.router.events.subscribe(() => {

@@ -6,6 +6,8 @@ import { SharedModule } from '../shared/shared.module';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     MatIconModule,
     MatButtonModule,
     MatToolbarModule,
+    MatSidenavModule,
+    RouterModule
   ],
   exports: [
     NavbarComponent,
