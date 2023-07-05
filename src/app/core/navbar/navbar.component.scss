@@ -12,8 +12,12 @@
     }
 
     &__menu {
-        display: flex;
+        display: none; 
         align-items: center;
         color: #FFFFFF;
+    
+        @media (max-width: 768px) {
+            display: flex;
+        }
     }
 }
