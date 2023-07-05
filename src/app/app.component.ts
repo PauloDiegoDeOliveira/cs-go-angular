@@ -14,4 +14,8 @@ export class AppComponent {
   constructor(private sidenavService: SidenavService) {
     this.sidenavService.sidenavOpen$.subscribe(opened => this.opened = opened);
   }
+
+  toggleSidenav() {
+    this.sidenavService.toggleSidenav();
+  }
 }
