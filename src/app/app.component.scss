@@ -1,12 +1,25 @@
-mat-sidenav {
-    width: 250px;
-    background-color: #f5f5f5;
-    padding: 20px;
-}
-
 mat-sidenav a {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding: 10px 15px;
     margin-bottom: 10px;
     color: #333;
     text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+
+    &:before {     
+        margin-right: 10px;
+    }
+
+    &:hover {
+        background-color: #333;
+        color: #f5f5f5;
+    }
+}
+
+a[routerLink="crud"] {
+    font-weight: bold;
 }
