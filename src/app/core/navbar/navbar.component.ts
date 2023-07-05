@@ -17,11 +17,11 @@ export class NavbarComponent {
       this.paginaLogin = this.router.url === '/login';
     });
     
-    this.sidenavService.sidenavOpen$.subscribe(opened => this.opened = opened);
+    this.sidenavService.navegacaoLateralAbrir_Observable.subscribe(opened => this.opened = opened);
   }
 
-  toggleSidenav() {
-    this.sidenavService.toggleSidenav();
+  alternarSidenav() {
+    this.sidenavService.alternarSidenav();
   }
 
 }

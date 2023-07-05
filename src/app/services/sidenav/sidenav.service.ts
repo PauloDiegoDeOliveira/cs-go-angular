@@ -5,11 +5,11 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class SidenavService {
-  private _sidenavOpen = new BehaviorSubject<boolean>(false);
-  public sidenavOpen$ = this._sidenavOpen.asObservable();
+  private navegacaoLateralAbrir = new BehaviorSubject<boolean>(false);
+  public navegacaoLateralAbrir_Observable = this.navegacaoLateralAbrir.asObservable();
 
-  toggleSidenav() {
-    this._sidenavOpen.next(!this._sidenavOpen.getValue());
+  alternarSidenav() {
+    this.navegacaoLateralAbrir.next(!this.navegacaoLateralAbrir.getValue());
   }
 
   constructor() { }
