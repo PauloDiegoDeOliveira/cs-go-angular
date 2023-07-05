@@ -21,7 +21,7 @@ import { RouterModule } from '@angular/router';
     LoginModule,
     CrudModule,
     MatSidenavModule,
-    RouterModule
+    RouterModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

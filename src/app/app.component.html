@@ -2,7 +2,7 @@
 
 <mat-sidenav-container>
     <mat-sidenav #sidenav mode="over" [(opened)]="opened" (opened)="events.push('open!')">
-        Crud
+        <a routerLink="/crud">Crud</a>     
     </mat-sidenav>
 
     <mat-sidenav-content>
