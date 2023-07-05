@@ -24,7 +24,7 @@ export class CrudComponent implements OnInit {
     public categoriaElementService: CategoriaService) {
     this.categoriaElementService.getElements()
       .subscribe((categoria: Categoria[]) => {
-        console.log('Categorias: ', categoria);
+        console.log('Categorias retornado da API: ', categoria);
         this.categoria = categoria;
       });
   }
