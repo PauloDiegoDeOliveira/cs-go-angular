@@ -1,13 +1,16 @@
-table {
-    width: 100%;
-}
-
 .crud {
     padding: 10px;
 
     @media(min-width: 768px) {
         padding: 50px;
     }
+
+    overflow-x: auto;
+    width: 100%;
+}
+
+table {
+    width: 100%;
 }
 
 .mat-icon-button {
@@ -31,11 +34,6 @@ table {
     }
 }
 
-.mat-header-cell {
-    text-align: center;
-}
-
 .action-header {
     text-align: center;
 }
-
