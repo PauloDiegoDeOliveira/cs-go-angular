@@ -38,6 +38,6 @@
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="exibirColunas"></tr>
-        <tr mat-row *matRowDef="let row; columns: exibirColunas;"></tr>
+        <tr mat-row matRowHover *matRowDef="let row; columns: exibirColunas;"></tr>
     </table>
 </div>
