@@ -20,5 +20,13 @@ table {
 
 .icon-container {
     display: flex;
-    justify-content: space-between; 
+    justify-content: center; 
+}
+
+.mat-icon-button {
+    margin: 5px;
+
+    @media(min-width: 768px) {
+        margin: 10px 20px; 
+    }
 }
