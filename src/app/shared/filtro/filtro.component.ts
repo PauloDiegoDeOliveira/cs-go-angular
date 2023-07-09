@@ -43,12 +43,16 @@ export class FiltroComponent implements OnInit {
   }
 
   limparInput() {
-    this.formulario.patchValue({
-      todosItens: null,
-      pesquisar: '',
-      ordenarPor: null,
-    })
-    console.log('Inputs limpo');
+    const { todosItens, pesquisar, ordenarPor } = this.formulario.value;
+
+    if (todosItens || pesquisar || ordenarPor) {
+      this.formulario.patchValue({
+        todosItens: null,
+        pesquisar: '',
+        ordenarPor: null,
+      });
+      console.log('Inputs limpo');
+    }
   }
 
 }
