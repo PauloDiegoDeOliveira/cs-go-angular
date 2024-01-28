@@ -21,7 +21,14 @@ export class FiltroComponent implements OnInit {
 
   ngOnInit() {
     this.teste();
+    this.iniciarBuscaNoLisa();
+  }
 
+  teste() {
+    console.log('--- Teste ---');
+  }
+
+  iniciarBuscaNoLisa() {
     const controlePesquisarNoLisa = this.formulario.get('pesquisarNoLisa');
     if (controlePesquisarNoLisa) {
       controlePesquisarNoLisa.valueChanges.pipe(
@@ -32,10 +39,6 @@ export class FiltroComponent implements OnInit {
         console.log("Resposta da API Lisa", response);
       });
     }
-  }
-
-  teste() {
-    console.log('--- Teste ---');
   }
 
   formularioInicial() {
@@ -56,13 +59,14 @@ export class FiltroComponent implements OnInit {
   }
 
   limparInput() {
-    const { todosItens, pesquisar, ordenarPor } = this.formulario.value;
+    const { todosItens, pesquisar, ordenarPor, pesquisarNoLisa } = this.formulario.value;
 
-    if (todosItens || pesquisar || ordenarPor) {
+    if (todosItens || pesquisar || ordenarPor || pesquisarNoLisa) {
       this.formulario.patchValue({
         todosItens: null,
         pesquisar: '',
         ordenarPor: null,
+        pesquisarNoLisa: '',
       });
       console.log('Inputs limpo');
     }
