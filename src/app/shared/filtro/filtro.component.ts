@@ -2,7 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Filtros } from 'src/app/models/filtros';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { debounceTime, filter, switchMap } from 'rxjs';
+import { catchError, debounceTime, filter, of, switchMap, tap } from 'rxjs';
 import { PesquisarLisaService } from 'src/app/services/pesquisarLisa/pesquisar-lisa.service';
 
 @Component({
@@ -25,7 +25,7 @@ export class FiltroComponent implements OnInit {
   }
 
   teste() {
-    console.log('--- Teste ---');
+    console.log('--- Teste com o "ngOnInit" formulário completamente inicializado e pronto ---');
   }
 
   iniciarBuscaNoLisa() {
@@ -33,10 +33,22 @@ export class FiltroComponent implements OnInit {
     if (controlePesquisarNoLisa) {
       controlePesquisarNoLisa.valueChanges.pipe(
         debounceTime(500),
-        filter(valor => valor != null && valor.trim() !== ''),
-        switchMap(valorDoCampo => this.pesquisarLisaService.buscarNoLisa(valorDoCampo))
+        filter(valor => valor != null && (valor as string).trim() !== ''),
+        tap((valorDoCampo: any) => {
+          console.log("Evento de valor emitido:", valorDoCampo);
+          console.log("Campo alterado para:", valorDoCampo);
+        }),
+        switchMap(valorDoCampo => {
+          console.log("Chamando API Lisa com valor:", valorDoCampo);
+          return this.pesquisarLisaService.buscarNoLisa(valorDoCampo).pipe(
+            catchError(error => {
+              console.error('Erro na API:', error);
+              return of([]);
+            })
+          )
+        })
       ).subscribe(response => {
-        console.log("Resposta da API Lisa", response);
+        console.log("Resposta da API Lisa recebida:", response);
       });
     }
   }
