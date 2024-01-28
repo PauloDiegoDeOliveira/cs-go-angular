@@ -2,7 +2,8 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Filtros } from 'src/app/models/filtros';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { debounceTime } from 'rxjs';
+import { debounceTime, filter, switchMap } from 'rxjs';
+import { PesquisarLisaService } from 'src/app/services/pesquisarLisa/pesquisar-lisa.service';
 
 @Component({
   selector: 'app-buscar',
@@ -14,12 +15,23 @@ export class FiltroComponent implements OnInit {
 
   formulario: FormGroup = new FormGroup({});
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private pesquisarLisaService: PesquisarLisaService) {
     this.formularioInicial();
   }
 
   ngOnInit() {
     this.teste();
+
+    const controlePesquisarNoLisa = this.formulario.get('pesquisarNoLisa');
+    if (controlePesquisarNoLisa) {
+      controlePesquisarNoLisa.valueChanges.pipe(
+        debounceTime(500),
+        filter(valor => valor != null && valor.trim() !== ''),
+        switchMap(valorDoCampo => this.pesquisarLisaService.buscarNoLisa(valorDoCampo))
+      ).subscribe(response => {
+        console.log("Resposta da API Lisa", response);
+      });
+    }
   }
 
   teste() {
@@ -29,8 +41,9 @@ export class FiltroComponent implements OnInit {
   formularioInicial() {
     this.formulario = this.formBuilder.group({
       todosItens: [null],
-      pesquisar: ['', Validators.required],
+      pesquisar: ['',],
       ordenarPor: [null],
+      pesquisarNoLisa: ['']
     });
 
     this.formulario.valueChanges
