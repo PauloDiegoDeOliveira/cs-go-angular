@@ -5,7 +5,7 @@ export interface DadosPesquisa {
     };
 
     fluxoSoftwares: Array<{
-        id: string;
+        id: number;
         nome: string
     }>;
 }

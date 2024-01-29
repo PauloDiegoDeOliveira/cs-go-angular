@@ -4,6 +4,7 @@ import { Filtros } from 'src/app/models/filtros';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { catchError, debounceTime, filter, of, switchMap, tap } from 'rxjs';
 import { PesquisarLisaService } from 'src/app/services/pesquisarLisa/pesquisar-lisa.service';
+import { ApiResponse } from 'src/app/models/Lisa/api-response';
 
 @Component({
   selector: 'app-buscar',
@@ -57,8 +58,8 @@ export class FiltroComponent implements OnInit {
           )
         })
       ).subscribe(response => {
-        console.log("Resposta da API Lisa recebida:", response);
-        this.dadosPesquisaLisa = response.dados;
+        const apiResponse = response as ApiResponse;
+        this.dadosPesquisaLisa = apiResponse.dados;
       });
     }
   }
