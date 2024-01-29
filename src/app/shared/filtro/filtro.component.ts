@@ -14,6 +14,11 @@ export class FiltroComponent implements OnInit {
   @Output() filtros = new EventEmitter<Filtros>();
 
   formulario: FormGroup = new FormGroup({});
+  dadosPesquisaLisa: any;
+  expandedSections: { [key: string]: boolean } = {
+    software: false,
+    fluxoSoftwares: false,
+  };
 
   constructor(private formBuilder: FormBuilder, private pesquisarLisaService: PesquisarLisaService) {
     this.formularioInicial();
@@ -26,6 +31,10 @@ export class FiltroComponent implements OnInit {
 
   teste() {
     console.log('--- Teste com o "ngOnInit" formulário completamente inicializado e pronto ---');
+  }
+
+  toggle(section: string) {
+    this.expandedSections[section] = !this.expandedSections[section];
   }
 
   iniciarBuscaNoLisa() {
@@ -49,6 +58,7 @@ export class FiltroComponent implements OnInit {
         })
       ).subscribe(response => {
         console.log("Resposta da API Lisa recebida:", response);
+        this.dadosPesquisaLisa = response.dados;
       });
     }
   }
