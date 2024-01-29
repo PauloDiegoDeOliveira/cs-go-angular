@@ -60,6 +60,7 @@ export class FiltroComponent implements OnInit {
       ).subscribe(response => {
         const apiResponse = response as ApiResponse;
         this.dadosPesquisaLisa = apiResponse.dados;
+        console.log(this.dadosPesquisaLisa);
       });
     }
   }
@@ -83,7 +84,6 @@ export class FiltroComponent implements OnInit {
 
   limparInput() {
     const { todosItens, pesquisar, ordenarPor, pesquisarNoLisa } = this.formulario.value;
-
     if (todosItens || pesquisar || ordenarPor || pesquisarNoLisa) {
       this.formulario.patchValue({
         todosItens: null,

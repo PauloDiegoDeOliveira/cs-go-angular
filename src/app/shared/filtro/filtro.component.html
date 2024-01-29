@@ -39,14 +39,15 @@
         <div *ngIf="dadosPesquisaLisa">
             <h3 (click)="toggle('software')">Software</h3>
             <div *ngIf="expandedSections['software']">
-                <p>{{ dadosPesquisaLisa.software.Id }}</p>
-                <p>{{ dadosPesquisaLisa.software.nome }}</p>
+                <p>ID: {{ dadosPesquisaLisa.software.id }}</p>
+                <p>Nome: {{ dadosPesquisaLisa.software.nome }}</p>
             </div>
 
-            <h3 (click)="toggle('fluxoSoftwares')">Fluxo de Softwares</h3>
             <div *ngIf="expandedSections['fluxoSoftwares']">
-                <p>{{ dadosPesquisaLisa.fluxoSoftwares.Id }}</p>
-                <p>{{ dadosPesquisaLisa.fluxoSoftwares.nome }}</p>
+                <div *ngFor="let fluxoSoftware of dadosPesquisaLisa.fluxoSoftwares">
+                    <p>ID: {{ fluxoSoftware.id }}</p>
+                    <p>Nome: {{ fluxoSoftware.nome }}</p>
+                </div>
             </div>
         </div>
     </div>
