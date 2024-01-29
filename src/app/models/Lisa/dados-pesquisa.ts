@@ -1,11 +1,10 @@
 export interface DadosPesquisa {
     software: {
-        id: number;
-        nome: string
+        id: string;
+        nome: string;
     };
-
     fluxoSoftwares: Array<{
-        id: number;
-        nome: string
+        id: string;
+        nome: string;
     }>;
 }
