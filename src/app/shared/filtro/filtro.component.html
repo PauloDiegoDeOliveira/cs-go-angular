@@ -35,20 +35,5 @@
             <button mat-raised-button color="primary" (click)="limparInput()">Limpar
                 filtros</button>
         </div>
-
-        <div *ngIf="dadosPesquisaLisa">
-            <h3 (click)="toggle('software')">Software</h3>
-            <div *ngIf="expandedSections['software']">
-                <p>ID: {{ dadosPesquisaLisa.software.id }}</p>
-                <p>Nome: {{ dadosPesquisaLisa.software.nome }}</p>
-            </div>
-
-            <div *ngIf="expandedSections['fluxoSoftwares']">
-                <div *ngFor="let fluxoSoftware of dadosPesquisaLisa.fluxoSoftwares">
-                    <p>ID: {{ fluxoSoftware.id }}</p>
-                    <p>Nome: {{ fluxoSoftware.nome }}</p>
-                </div>
-            </div>
-        </div>
     </div>
 </form>

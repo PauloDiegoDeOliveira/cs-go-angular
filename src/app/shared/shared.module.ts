@@ -19,6 +19,7 @@ import { DialogComponent } from './Dialog/dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DialogCrudComponent } from './dialog-crud/dialog-crud.component';
+import { PesquisaLisaComponent } from './pesquisaLisa/pesquisa-lisa/pesquisa-lisa.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { DialogCrudComponent } from './dialog-crud/dialog-crud.component';
     PaginacaoComponent,
     DialogComponent,
     DialogCrudComponent,
+    PesquisaLisaComponent,
   ],
   imports: [
     CommonModule,
