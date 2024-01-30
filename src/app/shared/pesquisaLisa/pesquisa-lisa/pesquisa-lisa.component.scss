@@ -1,0 +1,23 @@
+@import '../../scss/_colors';
+
+.search {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+mat-icon {
+    color: var(--blue);
+}
+
+.limpar-filtro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 960px) {
+    .search {
+        flex-direction: column;
+    }
+}
