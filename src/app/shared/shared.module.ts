@@ -59,7 +59,8 @@ import { PesquisaLisaComponent } from './pesquisaLisa/pesquisa-lisa/pesquisa-lis
     TituloComponent,
     PaginacaoComponent,
     DialogComponent,
-    DialogCrudComponent
+    DialogCrudComponent,
+    PesquisaLisaComponent
   ],
 })
 export class SharedModule { }

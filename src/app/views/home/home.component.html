@@ -4,6 +4,10 @@
     <app-buscar (filtros)="filtros($event)"> </app-buscar>
 </div>
 
+<div class="pesquisaLisa">  
+<app-pesquisa-lisa></app-pesquisa-lisa>  
+</div> 
+
 <div *ngIf="cardsMostrados.length === 0" class="no-results">
     Nenhum resultado encontrado.
 </div>
@@ -17,3 +21,6 @@
         (pageChange)="mudancaPagina($event)">
     </app-paginacao>
 </div>
+
+
+

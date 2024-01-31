@@ -30,9 +30,6 @@ export class PesquisaLisaComponent {
 
   formularioInicial() {
     this.formulario = this.formBuilder.group({
-      todosItens: [null],
-      pesquisar: ['',],
-      ordenarPor: [null],
       pesquisarNoLisa: ['']
     });
 
@@ -56,8 +53,8 @@ export class PesquisaLisaComponent {
           console.log("Campo alterado para:", valorDoCampo);
         }),
         switchMap(valorDoCampo => {
-          console.log("Chamando API Lisa com valor:", valorDoCampo);
-          return this.pesquisarLisaService.buscarNoLisa(valorDoCampo).pipe(
+          console.log("Chamando API Lisa com valor:", valorDoCampo);         
+          return this.pesquisarLisaService.buscarNoLisa(valorDoCampo, 5).pipe(
             catchError(error => {
               console.error('Erro na API:', error);
               return of([]);
@@ -71,11 +68,7 @@ export class PesquisaLisaComponent {
       });
     }
   }
-
-  toggle(section: string) {
-    this.expandedSections[section] = !this.expandedSections[section];
-  }
-
+  
   limparInput() {
     const { todosItens, pesquisar, ordenarPor, pesquisarNoLisa } = this.formulario.value;
     if (todosItens || pesquisar || ordenarPor || pesquisarNoLisa) {

@@ -9,9 +9,14 @@ export class PesquisarLisaService {
   private baseUrl = 'https://localhost:44305/v1/softwares';
 
   constructor(private http: HttpClient) { }
-
-  buscarNoLisa(query: string) {
-    return this.http.get<ApiResponse>(`${this.baseUrl}/pesquisa`, { params: { Pesquisa: query } });
+  
+  buscarNoLisa(query: string, quantidade: number) {
+    return this.http.get<ApiResponse>(`${this.baseUrl}/pesquisa-geral`, { 
+      params: { 
+        Pesquisa: query, 
+        Quantidade: quantidade 
+      }
+    });
   }
 
 }
