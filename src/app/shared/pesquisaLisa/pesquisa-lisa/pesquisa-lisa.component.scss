@@ -1,3 +1,4 @@
+/* Estilos para componente de pesquisa Lisa */
 .search {
     display: flex;
     flex-direction: column;
@@ -11,6 +12,7 @@
     max-width: 400px; 
 }
 
+/* Estilos para ícones e botão de limpar filtro */
 mat-icon {
     color: var(--blue);
 }
@@ -21,6 +23,7 @@ mat-icon {
     align-items: center;
 }
 
+/* Media query para ajustar o layout em telas menores */
 @media screen and (max-width: 960px) {
     .search {
         flex-direction: column;
