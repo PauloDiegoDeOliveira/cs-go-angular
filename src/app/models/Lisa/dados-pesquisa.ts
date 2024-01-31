@@ -1,8 +1,6 @@
 export interface DadosPesquisa {
-    software: {
-        id: string;
-        nome: string;
-    };    
+    id: string;
+    nome: string;
     fluxoSoftwares: boolean;
     solicitacoes: boolean;
     propostas: boolean;

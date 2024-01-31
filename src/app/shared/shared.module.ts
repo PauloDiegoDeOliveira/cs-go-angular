@@ -20,6 +20,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DialogCrudComponent } from './dialog-crud/dialog-crud.component';
 import { PesquisaLisaComponent } from './pesquisaLisa/pesquisa-lisa/pesquisa-lisa.component';
+import { ResultadoPesquisaLisaComponent } from './pesquisaLisa/pesquisa-lisa/resultado-pesquisa-lisa/resultado-pesquisa-lisa/resultado-pesquisa-lisa.component';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { PesquisaLisaComponent } from './pesquisaLisa/pesquisa-lisa/pesquisa-lis
     DialogComponent,
     DialogCrudComponent,
     PesquisaLisaComponent,
+    ResultadoPesquisaLisaComponent,
   ],
   imports: [
     CommonModule,
