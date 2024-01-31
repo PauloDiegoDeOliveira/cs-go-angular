@@ -1,11 +1,11 @@
 <form [formGroup]="formulario">
     <div class="search">
 
-        <mat-form-field appearance="outline">
+        <mat-form-field appearance="outline" class="search-input">
             <mat-label>Pesquisa geral no Lisa</mat-label>
             <input matInput formControlName="pesquisarNoLisa" placeholder="Ex: Account 2023">
             <mat-icon matSuffix>search</mat-icon>
-        </mat-form-field>
+        </mat-form-field>        
 
         <app-resultado-pesquisa-lisa *ngFor="let software of dadosPesquisaLisa" [software]="software"></app-resultado-pesquisa-lisa>
 
