@@ -8,7 +8,7 @@ import { Categoria } from 'src/app/models/responses/categoria';
 })
 export class CategoriaService {
 
-  urlApi = 'https://sistemashomologacao.suafaculdade.com.br/ObjetivoGames/api/Categoria';
+  urlApi = '';
 
   constructor(private http: HttpClient) { }
 
