@@ -6,28 +6,29 @@ import { CrudComponent } from './views/crud/crud.component';
 const routes: Routes = [
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
   },
-  {
-    path: 'crud',
-    component: CrudComponent
-  },
+  // {
+  //   path: 'crud',
+  //   component: CrudComponent
+  // },
   // {
   //   path: 'crud',
   //   loadChildren: () => import('./views/crud/crud.module').then(m => m.CrudModule)
   // },
   {
     path: 'home',
-    loadChildren: () => import('./views/home/home.module').then(m => m.HomeModule)
+    loadChildren: () =>
+      import('./views/home/home.module').then((m) => m.HomeModule),
   },
   {
     path: '**',
-    redirectTo: 'home'
+    redirectTo: 'home',
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
